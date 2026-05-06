@@ -1,0 +1,421 @@
+{
+  "traceEvents": [
+    {
+      "name": "VocabParallelEmbedding",
+      "ph": "X",
+      "ts": 6598207234.862,
+      "dur": 721.314,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 4096)",
+        "output_dtype": "torch.float32",
+        "module_path": "VocabParallelEmbedding"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6598207996.642,
+      "dur": 5134.468,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4096)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 4096)",
+        "output_dtype": "torch.float32",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "QKVParallelLinear",
+      "ph": "X",
+      "ts": 6598213161.916,
+      "dur": 612.789,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4096)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 12288)",
+        "output_dtype": "torch.float32",
+        "module_path": "QKVParallelLinear"
+      }
+    },
+    {
+      "name": "RotaryEmbedding",
+      "ph": "X",
+      "ts": 6598214365.465,
+      "dur": 20898.517,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 4096) | (128, 4096)",
+        "output_dtype": "torch.float32 | torch.float32",
+        "module_path": "RotaryEmbedding"
+      }
+    },
+    {
+      "name": "Attention",
+      "ph": "X",
+      "ts": 6598235292.471,
+      "dur": 3837.752,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4096)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 4096)",
+        "output_dtype": "torch.float32",
+        "module_path": "Attention"
+      }
+    },
+    {
+      "name": "RowParallelLinear",
+      "ph": "X",
+      "ts": 6598239147.19,
+      "dur": 443.854,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4096)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 4096)",
+        "output_dtype": "torch.float32",
+        "module_path": "RowParallelLinear"
+      }
+    },
+    {
+      "name": "LlamaAttention",
+      "ph": "X",
+      "ts": 6598213147.206,
+      "dur": 26467.015,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 4096)",
+        "output_dtype": "torch.float32",
+        "module_path": "LlamaAttention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6598239627.952,
+      "dur": 1717.548,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4096)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 4096) | (128, 4096)",
+        "output_dtype": "torch.float32 | torch.float32",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "MergedColumnParallelLinear",
+      "ph": "X",
+      "ts": 6598241389.013,
+      "dur": 424.526,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4096)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 22016)",
+        "output_dtype": "torch.float32",
+        "module_path": "MergedColumnParallelLinear"
+      }
+    },
+    {
+      "name": "SiluAndMul",
+      "ph": "X",
+      "ts": 6598241830.51,
+      "dur": 2764.394,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 22016)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 11008)",
+        "output_dtype": "torch.float32",
+        "module_path": "SiluAndMul"
+      }
+    },
+    {
+      "name": "RowParallelLinear",
+      "ph": "X",
+      "ts": 6598244621.592,
+      "dur": 464.7,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 11008)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 4096)",
+        "output_dtype": "torch.float32",
+        "module_path": "RowParallelLinear"
+      }
+    },
+    {
+      "name": "LlamaMLP",
+      "ph": "X",
+      "ts": 6598241374.139,
+      "dur": 3729.606,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4096)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 4096)",
+        "output_dtype": "torch.float32",
+        "module_path": "LlamaMLP"
+      }
+    },
+    {
+      "name": "LlamaDecoderLayer",
+      "ph": "X",
+      "ts": 6598207982.428,
+      "dur": 37129.366,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 4096) | (128, 4096)",
+        "output_dtype": "torch.float32 | torch.float32",
+        "module_path": "LlamaDecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6598245141.778,
+      "dur": 1079.802,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4096)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 4096) | (128, 4096)",
+        "output_dtype": "torch.float32 | torch.float32",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "QKVParallelLinear",
+      "ph": "X",
+      "ts": 6598246254.644,
+      "dur": 186.813,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4096)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 12288)",
+        "output_dtype": "torch.float32",
+        "module_path": "QKVParallelLinear"
+      }
+    },
+    {
+      "name": "RotaryEmbedding",
+      "ph": "X",
+      "ts": 6598246842.016,
+      "dur": 5169.258,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 4096) | (128, 4096)",
+        "output_dtype": "torch.float32 | torch.float32",
+        "module_path": "RotaryEmbedding"
+      }
+    },
+    {
+      "name": "Attention",
+      "ph": "X",
+      "ts": 6598252040.327,
+      "dur": 1175.524,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4096)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 4096)",
+        "output_dtype": "torch.float32",
+        "module_path": "Attention"
+      }
+    },
+    {
+      "name": "RowParallelLinear",
+      "ph": "X",
+      "ts": 6598253231.171,
+      "dur": 193.643,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4096)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 4096)",
+        "output_dtype": "torch.float32",
+        "module_path": "RowParallelLinear"
+      }
+    },
+    {
+      "name": "LlamaAttention",
+      "ph": "X",
+      "ts": 6598246240.108,
+      "dur": 7211.557,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 4096)",
+        "output_dtype": "torch.float32",
+        "module_path": "LlamaAttention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6598253469.479,
+      "dur": 1602.529,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4096)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 4096) | (128, 4096)",
+        "output_dtype": "torch.float32 | torch.float32",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "MergedColumnParallelLinear",
+      "ph": "X",
+      "ts": 6598255116.136,
+      "dur": 255.545,
+      "pid": 0,
+      "tid": 0,
+      "cat": "LlamaMLP",
+      "args": {
+        "input_shape": "(128, 4096)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 22016)",
+        "output_dtype": "torch.float32",
+        "module_path": "LlamaMLP.gate_up_proj"
+      }
+    },
+    {
+      "name": "SiluAndMul",
+      "ph": "X",
+      "ts": 6598255391.878,
+      "dur": 945.975,
+      "pid": 0,
+      "tid": 0,
+      "cat": "LlamaMLP",
+      "args": {
+        "input_shape": "(128, 22016)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 11008)",
+        "output_dtype": "torch.float32",
+        "module_path": "LlamaMLP.act_fn"
+      }
+    },
+    {
+      "name": "RowParallelLinear",
+      "ph": "X",
+      "ts": 6598256356.092,
+      "dur": 248.144,
+      "pid": 0,
+      "tid": 0,
+      "cat": "LlamaMLP",
+      "args": {
+        "input_shape": "(128, 11008)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 4096)",
+        "output_dtype": "torch.float32",
+        "module_path": "LlamaMLP.down_proj"
+      }
+    },
+    {
+      "name": "LlamaMLP",
+      "ph": "X",
+      "ts": 6598255097.162,
+      "dur": 1524.811,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4096)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 4096)",
+        "output_dtype": "torch.float32",
+        "module_path": "LlamaMLP"
+      }
+    },
+    {
+      "name": "LlamaDecoderLayer",
+      "ph": "X",
+      "ts": 6598245127.063,
+      "dur": 11505.706,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 4096) | (128, 4096)",
+        "output_dtype": "torch.float32 | torch.float32",
+        "module_path": "LlamaDecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6598256662.272,
+      "dur": 1246.775,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4096)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 4096) | (128, 4096)",
+        "output_dtype": "torch.float32 | torch.float32",
+        "module_path": "RMSNorm"
+      }
+    }
+  ],
+  "displayTimeUnit": "ms"
+}

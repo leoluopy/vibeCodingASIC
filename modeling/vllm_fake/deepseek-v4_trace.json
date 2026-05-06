@@ -1,0 +1,6885 @@
+{
+  "traceEvents": [
+    {
+      "name": "VocabParallelEmbedding",
+      "ph": "X",
+      "ts": 6572541890.73,
+      "dur": 201.899,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.float32",
+        "module_path": "VocabParallelEmbedding"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572547100.659,
+      "dur": 2552.378,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.float32",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572549694.882,
+      "dur": 396.284,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572549679.811,
+      "dur": 421.78,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572553872.9,
+      "dur": 3956.169,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572558682.23,
+      "dur": 1547.646,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572557855.312,
+      "dur": 3483.613,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572542984.353,
+      "dur": 18792.546,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572562383.248,
+      "dur": 1710.919,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572564125.973,
+      "dur": 392.185,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572564112.399,
+      "dur": 416.21,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572565520.399,
+      "dur": 1738.974,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572567424.56,
+      "dur": 550.857,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572567280.459,
+      "dur": 854.808,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572561790.996,
+      "dur": 6758.992,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572569148.486,
+      "dur": 1733.788,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572570921.267,
+      "dur": 162.846,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572570906.657,
+      "dur": 187.891,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572572099.449,
+      "dur": 1735.889,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572573997.784,
+      "dur": 554.674,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572573856.051,
+      "dur": 853.023,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572568563.639,
+      "dur": 6568.462,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572575723.671,
+      "dur": 1728.096,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572577484.451,
+      "dur": 137.303,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572577470.853,
+      "dur": 160.528,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572578607.9,
+      "dur": 1688.608,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572580333.982,
+      "dur": 544.758,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572580313.518,
+      "dur": 721.557,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572575145.691,
+      "dur": 6297.236,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572582036.002,
+      "dur": 1683.747,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572583750.803,
+      "dur": 135.996,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572583736.693,
+      "dur": 159.546,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572584876.416,
+      "dur": 1690.56,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572586605.096,
+      "dur": 549.185,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572586584.552,
+      "dur": 721.171,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572581455.996,
+      "dur": 6258.65,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572588305.112,
+      "dur": 1691.432,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572590031.495,
+      "dur": 137.265,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572590018.191,
+      "dur": 159.957,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572591167.083,
+      "dur": 1685.893,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572592889.191,
+      "dur": 547.915,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572592870.128,
+      "dur": 718.439,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572587726.871,
+      "dur": 6270.399,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572594589.953,
+      "dur": 1694.072,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572596316.711,
+      "dur": 154.404,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572596302.634,
+      "dur": 178.556,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572597623.015,
+      "dur": 2351.134,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572600018.106,
+      "dur": 671.237,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572599993.458,
+      "dur": 874.188,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572594013.813,
+      "dur": 7452.516,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572602196.625,
+      "dur": 2141.704,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572604393.469,
+      "dur": 157.666,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572604373.346,
+      "dur": 187.63,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572605734.311,
+      "dur": 3148.474,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572608981.972,
+      "dur": 984.115,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572608937.663,
+      "dur": 1290.916,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572601480.813,
+      "dur": 9446.319,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572611947.363,
+      "dur": 1910.877,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572613891.746,
+      "dur": 143.256,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572613877.329,
+      "dur": 167.329,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572615054.4,
+      "dur": 1693.752,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572616787.906,
+      "dur": 554.926,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572616767.272,
+      "dur": 739.718,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572610945.93,
+      "dur": 6969.635,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572618510.785,
+      "dur": 1890.331,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572620434.758,
+      "dur": 138.801,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572620420.961,
+      "dur": 162.186,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572621576.578,
+      "dur": 1969.293,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572623583.86,
+      "dur": 656.064,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572623563.311,
+      "dur": 832.168,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572617928.213,
+      "dur": 6930.894,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572625516.488,
+      "dur": 1953.822,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572627502.907,
+      "dur": 164.555,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572627488.783,
+      "dur": 188.114,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572628954.154,
+      "dur": 2037.277,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572631055.335,
+      "dur": 624.477,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572631034.805,
+      "dur": 799.065,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572624872.014,
+      "dur": 7474.82,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572632981.53,
+      "dur": 2060.494,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572635101.906,
+      "dur": 165.676,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572635075.253,
+      "dur": 202.498,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572636523.553,
+      "dur": 1877.989,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572638454.098,
+      "dur": 581.201,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572638429.333,
+      "dur": 767.175,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572632370.672,
+      "dur": 7257.023,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572640260.78,
+      "dur": 1769.574,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572642072.442,
+      "dur": 140.457,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572642051.748,
+      "dur": 170.66,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572643218.5,
+      "dur": 1794.214,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572645050.602,
+      "dur": 549.976,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572645030.878,
+      "dur": 720.161,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572639640.834,
+      "dur": 6526.684,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572646753.445,
+      "dur": 1682.199,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572648465.451,
+      "dur": 135.781,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572648452.831,
+      "dur": 157.649,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572649573.716,
+      "dur": 1667.446,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572651277.633,
+      "dur": 537.961,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572651258.686,
+      "dur": 709.004,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572646180.865,
+      "dur": 6198.016,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572652959.924,
+      "dur": 1695.135,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572654685.128,
+      "dur": 136.184,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572654672.085,
+      "dur": 158.95,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572655804.821,
+      "dur": 1687.076,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572657528.733,
+      "dur": 547.566,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572657508.948,
+      "dur": 719.286,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572652391.228,
+      "dur": 6246.9,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572659226.647,
+      "dur": 1712.838,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572660970.519,
+      "dur": 140.872,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572660956.817,
+      "dur": 163.866,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572662098.313,
+      "dur": 1683.782,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572663820.84,
+      "dur": 552.856,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572663800.203,
+      "dur": 726.428,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572658650.127,
+      "dur": 6286.768,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572665528.87,
+      "dur": 1683.859,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572667242.107,
+      "dur": 135.319,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572667229.058,
+      "dur": 157.815,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572668366.397,
+      "dur": 1704.469,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572670109.777,
+      "dur": 579.737,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572670090.36,
+      "dur": 753.799,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572664949.72,
+      "dur": 6316.139,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572671856.421,
+      "dur": 1705.901,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572673594.747,
+      "dur": 136.229,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572673580.555,
+      "dur": 159.694,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572674752.956,
+      "dur": 1696.12,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572676486.9,
+      "dur": 552.125,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572676467.575,
+      "dur": 725.074,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572671278.764,
+      "dur": 6325.784,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572678198.265,
+      "dur": 1689.213,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572679918.554,
+      "dur": 142.301,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572679905.184,
+      "dur": 172.697,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572681056.987,
+      "dur": 1765.5,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572682860.031,
+      "dur": 549.983,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572682840.101,
+      "dur": 721.142,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572677617.149,
+      "dur": 6350.525,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572684551.442,
+      "dur": 1685.838,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572686266.798,
+      "dur": 135.309,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572686254.05,
+      "dur": 157.305,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572687377.361,
+      "dur": 1707.33,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572689124.044,
+      "dur": 567.553,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572689104.278,
+      "dur": 738.824,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572683979.982,
+      "dur": 6276.427,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572690842.941,
+      "dur": 1692.282,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572692564.436,
+      "dur": 134.076,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572692551.779,
+      "dur": 155.992,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572693674.003,
+      "dur": 1670.308,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572695381.018,
+      "dur": 537.428,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572695361.398,
+      "dur": 711.889,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572690269.27,
+      "dur": 6204.491,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572697055.842,
+      "dur": 1667.216,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572698758.135,
+      "dur": 134.483,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572698745.378,
+      "dur": 156.618,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572699939.581,
+      "dur": 1839.112,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572701830.318,
+      "dur": 564.812,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572701805.97,
+      "dur": 745.136,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572696485.581,
+      "dur": 6490.901,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572703856.888,
+      "dur": 3028.487,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572706972.479,
+      "dur": 220.807,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572706940.173,
+      "dur": 271.236,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572708820.048,
+      "dur": 2675.703,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572711552.527,
+      "dur": 576.229,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572711526.452,
+      "dur": 763.398,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572702990.101,
+      "dur": 9722.198,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572713386.736,
+      "dur": 1744.919,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572715163.701,
+      "dur": 136.859,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572715149.794,
+      "dur": 160.168,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572716288.06,
+      "dur": 1698.384,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572718034.086,
+      "dur": 554.85,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572718011.48,
+      "dur": 732.651,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572712725.21,
+      "dur": 6449.025,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572719768.265,
+      "dur": 1712.649,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572721511.037,
+      "dur": 134.939,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572721497.865,
+      "dur": 157.361,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572722629.954,
+      "dur": 1771.96,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572724443.564,
+      "dur": 542.368,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572724423.147,
+      "dur": 719.373,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572719188.071,
+      "dur": 6365.667,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572726143.632,
+      "dur": 1684.908,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572727858.815,
+      "dur": 137.348,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572727845.494,
+      "dur": 164.551,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572728974.839,
+      "dur": 1682.678,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572730694.362,
+      "dur": 547.265,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572730674.814,
+      "dur": 718.859,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572725566.074,
+      "dur": 6233.045,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572732389.406,
+      "dur": 1696.471,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572734115.881,
+      "dur": 136.81,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572734103.036,
+      "dur": 158.947,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572735235.76,
+      "dur": 1680.722,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572736952.795,
+      "dur": 570.886,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572736934.248,
+      "dur": 743.125,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572731811.647,
+      "dur": 6279.919,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572738718.402,
+      "dur": 1695.397,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572740442.963,
+      "dur": 135.217,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572740430.243,
+      "dur": 157.148,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572741553.526,
+      "dur": 1673.538,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572743263.076,
+      "dur": 542.439,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572743243.819,
+      "dur": 713.434,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572738103.529,
+      "dur": 6262.067,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572744947.236,
+      "dur": 1689.851,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572746666.421,
+      "dur": 135.751,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572746653.858,
+      "dur": 157.475,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572747805.259,
+      "dur": 1712.38,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572749557.964,
+      "dur": 548.784,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572749538.32,
+      "dur": 719.532,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572744378.259,
+      "dur": 6293.76,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572751262.206,
+      "dur": 1684.606,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572752975.999,
+      "dur": 141.296,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572752963.371,
+      "dur": 163.073,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572754093.592,
+      "dur": 1682.862,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572755813.525,
+      "dur": 550.176,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572755794.205,
+      "dur": 721.67,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572750684.602,
+      "dur": 6262.297,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572757567.22,
+      "dur": 1774.655,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572759371.212,
+      "dur": 136.139,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572759358.414,
+      "dur": 158.347,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572760479.321,
+      "dur": 1761.665,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572762275.909,
+      "dur": 540.018,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572762258.07,
+      "dur": 707.256,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572756959.849,
+      "dur": 6414.276,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572763950.362,
+      "dur": 1679.085,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572765659.511,
+      "dur": 135.854,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572765646.046,
+      "dur": 158.871,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572766794.359,
+      "dur": 1736.869,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572768572.377,
+      "dur": 558.532,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572768551.832,
+      "dur": 734.966,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572763386.346,
+      "dur": 6316.418,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572770307.541,
+      "dur": 1777.336,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572772120.085,
+      "dur": 137.687,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572772106.061,
+      "dur": 161.086,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572773250.311,
+      "dur": 1692.137,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572774980.95,
+      "dur": 563.778,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572774960.259,
+      "dur": 738.268,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572769716.064,
+      "dur": 6407.051,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572776712.899,
+      "dur": 1693.5,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572778441.494,
+      "dur": 135.614,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572778428.528,
+      "dur": 158.049,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572779555.502,
+      "dur": 1676.945,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572781268.399,
+      "dur": 540.496,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572781248.79,
+      "dur": 710.464,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572776136.217,
+      "dur": 6235.736,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572782954.275,
+      "dur": 2086.094,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572785089.779,
+      "dur": 220.402,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572785067.042,
+      "dur": 257.184,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572786987.552,
+      "dur": 1860.99,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572788890.329,
+      "dur": 577.54,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572788869.631,
+      "dur": 753.466,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572782383.948,
+      "dur": 7662.028,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572790641.849,
+      "dur": 1714.159,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572792385.988,
+      "dur": 136.646,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572792372.894,
+      "dur": 159.221,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572793503.363,
+      "dur": 1683.85,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572795224.106,
+      "dur": 543.115,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572795203.941,
+      "dur": 713.196,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572790059.49,
+      "dur": 6273.096,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572796914.754,
+      "dur": 1690.173,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572798635.455,
+      "dur": 136.771,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572798622.273,
+      "dur": 159.367,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572799812.568,
+      "dur": 2220.715,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572802095.968,
+      "dur": 601.795,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572802068.047,
+      "dur": 802.642,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572796344.526,
+      "dur": 6983.279,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572803965.343,
+      "dur": 1873.946,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572805879.584,
+      "dur": 144.011,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572805864.314,
+      "dur": 169.092,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572807036.188,
+      "dur": 1712.249,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572808789.759,
+      "dur": 557.017,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572808767.546,
+      "dur": 732.925,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572803343.715,
+      "dur": 6568.886,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572810506.242,
+      "dur": 1700.957,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572812237.384,
+      "dur": 136.244,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572812224.281,
+      "dur": 165.306,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572813360.253,
+      "dur": 1684.383,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572815081.994,
+      "dur": 563.091,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572815062.542,
+      "dur": 750.387,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572809925.697,
+      "dur": 6306.398,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572816820.251,
+      "dur": 1699.529,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572818550.834,
+      "dur": 137.043,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572818537.397,
+      "dur": 159.575,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572819667.543,
+      "dur": 1686.721,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572821390.093,
+      "dur": 548.053,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572821371.296,
+      "dur": 724.903,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572816245.235,
+      "dur": 6258.468,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572823095.616,
+      "dur": 1676.703,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572824801.966,
+      "dur": 134.806,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572824788.987,
+      "dur": 157.227,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572825911.338,
+      "dur": 1684.031,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572827631.23,
+      "dur": 550.839,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572827612.831,
+      "dur": 721.23,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572822516.112,
+      "dur": 6226.233,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572829333.568,
+      "dur": 1687.859,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572831051.165,
+      "dur": 135.653,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572831038.345,
+      "dur": 157.621,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572832166.13,
+      "dur": 1668.682,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572833871.358,
+      "dur": 545.071,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572833852.256,
+      "dur": 716.254,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572828754.519,
+      "dur": 6221.463,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572835565.272,
+      "dur": 1754.514,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572837355.318,
+      "dur": 144.696,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572837336.314,
+      "dur": 173.025,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572838471.452,
+      "dur": 1810.857,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572840319.16,
+      "dur": 542.741,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572840299.907,
+      "dur": 719.408,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572834988.333,
+      "dur": 6439.454,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572842018.949,
+      "dur": 1666.506,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572843713.977,
+      "dur": 134.883,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572843701.954,
+      "dur": 156.031,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572844825.081,
+      "dur": 1697.189,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572846560.013,
+      "dur": 553.874,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572846540.693,
+      "dur": 726.878,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572841439.937,
+      "dur": 6239.897,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572848297.372,
+      "dur": 1730.419,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572850062.388,
+      "dur": 139.744,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572850048.223,
+      "dur": 164.331,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572851228.607,
+      "dur": 1676.38,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572852942.227,
+      "dur": 551.729,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572852921.964,
+      "dur": 724.379,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572847700.398,
+      "dur": 6358.544,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572854643.214,
+      "dur": 1686.805,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572856359.172,
+      "dur": 134.941,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572856346.308,
+      "dur": 157.168,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572857466.29,
+      "dur": 1709.784,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572859214.011,
+      "dur": 543.823,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572859194.92,
+      "dur": 714.297,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572854071.759,
+      "dur": 6251.891,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572860908.471,
+      "dur": 1686.203,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572862624.328,
+      "dur": 135.637,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572862611.405,
+      "dur": 157.941,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572863735.456,
+      "dur": 1675.391,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572865451.104,
+      "dur": 558.123,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572865430.915,
+      "dur": 734.427,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572860336.548,
+      "dur": 6243.194,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572867178.148,
+      "dur": 1719.127,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572868958.172,
+      "dur": 155.174,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572868919.595,
+      "dur": 204.836,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572870135.7,
+      "dur": 1749.387,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572871927.261,
+      "dur": 561.75,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572871906.116,
+      "dur": 737.499,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572866592.638,
+      "dur": 6470.286,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572873657.903,
+      "dur": 1684.121,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572875371.251,
+      "dur": 136.3,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572875358.609,
+      "dur": 158.232,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572876491.942,
+      "dur": 1808.535,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572878350.477,
+      "dur": 575.322,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572878318.615,
+      "dur": 768.869,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572873076.373,
+      "dur": 6423.228,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572880100.43,
+      "dur": 1707.196,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572881839.198,
+      "dur": 134.77,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572881825.606,
+      "dur": 157.628,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572882960.179,
+      "dur": 1712.716,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572884717.143,
+      "dur": 559.331,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572884696.094,
+      "dur": 740.395,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572879512.638,
+      "dur": 6349.044,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572886475.645,
+      "dur": 1792.726,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572888309.636,
+      "dur": 141.595,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572888293.601,
+      "dur": 176.224,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572889480.043,
+      "dur": 1732.835,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572891252.363,
+      "dur": 551.276,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572891232.103,
+      "dur": 724.708,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572885875.842,
+      "dur": 6500.056,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572892964.389,
+      "dur": 1689.842,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572894685.012,
+      "dur": 136.131,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572894671.76,
+      "dur": 158.373,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572895798.475,
+      "dur": 1676.544,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572897514.186,
+      "dur": 552.434,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572897493.837,
+      "dur": 726.774,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572892389.095,
+      "dur": 6240.685,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572899241.29,
+      "dur": 1851.782,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572901152.458,
+      "dur": 149.668,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572901133.359,
+      "dur": 179.576,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572902371.786,
+      "dur": 1831.952,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572904256.126,
+      "dur": 566.474,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572904232.036,
+      "dur": 749.711,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572898643.384,
+      "dur": 6768.533,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572906018.569,
+      "dur": 1735.919,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572907784.611,
+      "dur": 135.796,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572907771.215,
+      "dur": 158.693,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572908894.812,
+      "dur": 1686.244,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572910618.792,
+      "dur": 549.487,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572910598.658,
+      "dur": 724.074,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572905425.678,
+      "dur": 6348.465,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572912441.665,
+      "dur": 1800.34,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572914277.328,
+      "dur": 137.374,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572914262.853,
+      "dur": 161.313,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572915411.554,
+      "dur": 1840.793,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572917301.343,
+      "dur": 571.275,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572917277.299,
+      "dur": 758.783,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572911800.166,
+      "dur": 6653.352,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572919051.722,
+      "dur": 1727.727,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572920813.911,
+      "dur": 136.154,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572920800.189,
+      "dur": 159.316,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572921989.059,
+      "dur": 1713.137,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572923742.73,
+      "dur": 556.319,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572923721.463,
+      "dur": 729.442,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572918466.748,
+      "dur": 6393.519,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572925447.699,
+      "dur": 1700.531,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572927177.487,
+      "dur": 134.567,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572927164.368,
+      "dur": 157.069,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572928289.589,
+      "dur": 1665.354,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572929989.598,
+      "dur": 545.659,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572929971.393,
+      "dur": 715.258,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572924873.513,
+      "dur": 6222.831,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572931679.585,
+      "dur": 1681.978,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572933394.284,
+      "dur": 136.236,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572933381.644,
+      "dur": 158.475,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572934512.205,
+      "dur": 1680.13,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572936229.781,
+      "dur": 544.35,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572936209.835,
+      "dur": 716.016,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572931108.553,
+      "dur": 6236.332,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572937935.577,
+      "dur": 1737.689,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572939703.056,
+      "dur": 135.251,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572939690.703,
+      "dur": 156.912,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572940825.557,
+      "dur": 1672.4,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572942534.027,
+      "dur": 539.268,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572942514.785,
+      "dur": 709.602,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572937357.755,
+      "dur": 6273.993,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572944218.337,
+      "dur": 1672.277,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572945919.518,
+      "dur": 140.995,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572945907.331,
+      "dur": 162.532,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572947035.583,
+      "dur": 1727.392,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572948800.625,
+      "dur": 558.988,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572948781.012,
+      "dur": 730.837,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572943643.912,
+      "dur": 6274.051,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572950509.954,
+      "dur": 1675.118,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 6572952214.312,
+      "dur": 135.75,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 6572952201.534,
+      "dur": 158.128,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572953329.62,
+      "dur": 1816.714,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 6572955183.985,
+      "dur": 539.053,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 6572955164.532,
+      "dur": 707.886,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 6572949930.076,
+      "dur": 6355.614,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 6572971930.578,
+      "dur": 2393.608,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.bfloat16",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4ForCausalLM",
+      "ph": "X",
+      "ts": 6572541864.521,
+      "dur": 432480.072,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.bfloat16",
+        "module_path": "DeepseekV4ForCausalLM"
+      }
+    }
+  ],
+  "displayTimeUnit": "ms"
+}
