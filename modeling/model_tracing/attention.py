@@ -2,6 +2,44 @@ from .base import BaseModeler, parse_shape, get_elem_size, prod, latency_us
 
 HEAD_DIM = 128
 
+"""
+典型形状示例 (CoreAttention - 单核 attention 计算):
+  prefill:  input=(1, 32, 1, 128), output=(1, 32, 1, 128) → B=1, NH=32, S=1, HEAD_DIM=128
+  decode:   input=(1, 32, 1, 128), output=(1, 32, 1, 128)
+
+估计推导:
+  Q @ K^T:   S=1 时 flops=2*NH*S*S*HEAD_DIM = 2*NH*1*1*128
+  attn @ V:  同上 2*NH*S*S*HEAD_DIM
+  matmul_flops = 4 * NH * S * S * HEAD_DIM
+
+  Softmax:   每行: exp (SFU), sum (reduce), div (1d) → 3 ops / element
+  softmax_flops = 3 * NH * S * S
+
+  score_bytes = NH * S * S * 4  (fp32 中间分数)
+
+  延迟 = max(matmul/2d_peak + softmax/sfu_peak, (in+out+score)/bandwidth)
+--------------------------------------------------------------
+CompositeAttentionModeler - 完整的 QKV+RoPE+Attn+Output 复合:
+  Llama-7B:  output=(1, 1, 4096) → B=1, H=4096, NH=32
+  Llama-70B: output=(1, 1, 8192) → B=1, H=8192, NH=64
+
+  QKV proj:  x @ [Wq,Wk,Wv] = 3 个 linear → 3 * 2*B*H*H = 6BH^2
+  RoPE:      B*H*2 SFU ops
+  Attn matmul: 4*NH*S*S*HEAD_DIM
+  Attn softmax: 3*NH*S*S
+  Out proj:    2*B*H*H
+
+  Mem: in(B*H) + out(B*H) + qkv(3*B*H) + score(NH*S*S*4)
+--------------------------------------------------------------
+MLAAttentionModeler - DeepSeekV2 MLA (Multi-head Latent Attention):
+  prefill:  input=(1, 1, 512), output=(1, 1, 4096)  → B=1, S=1, latent_dim=512, H_out=4096
+  decode:   input=(1, 512), output=(1, 4096)
+
+  MLA 将 Q/KV 压缩到低维 latent space 后做 attention
+  本质是一个 matmul: x @ W_out,  x: (B,S,latent_dim), W_out: (H_out, latent_dim)
+  FLOPs = 2 * B * S * latent_dim * H_out
+"""
+
 
 class CoreAttentionModeler(BaseModeler):
 

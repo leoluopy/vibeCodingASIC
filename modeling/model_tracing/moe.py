@@ -1,5 +1,20 @@
 from .base import BaseModeler, parse_shape, first_shape, get_elem_size, prod, latency_us
 
+"""
+FusedMoE - 融合 MoE (单个 Matmul 包含多个 Expert):
+  Llama-7B-like:  input=(1, 4096), output=(1, 4096) → B=1, H_in=4096, H_out=4096
+  FLOPs = 4 * B * H_in * H_out  (融合后的 expert 计算)
+--------------------------------------------------------------
+MoE - 标准 MoE (Gate + Expert 分开):
+  典型配置: n_experts=8, top_k=2, H=4096, intermediate=5461
+
+  Gate: x @ W_gate  → 2*B*H*n_experts flops, 选出 top_k 个 expert
+  Expert up:  每个 expert 做 x @ W_up    → top_k * (B/n) * H * intermediate * 2
+  Expert down: 每个 expert 做 act @ W_down → top_k * (B/n) * intermediate * H * 2
+
+  注意: B 被均匀分散到 n_experts 个 expert 上, 每个 expert 处理 B//n 个 token
+"""
+
 
 class FusedMoEModeler(BaseModeler):
 

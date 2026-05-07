@@ -1,6 +1,35 @@
 import re
 from .config import chip_specs as default_chip_specs, dtype_size
 
+"""
+=============================================================================
+典型形状示例 (Typical Shape Examples)
+--------------------------------------
+以下为常见 LLM 配置下的张量形状参考（batch_size=1, seq_len=1, 即 prefill 场景）:
+
+  Llama-7B:    H=4096, NH=32,   HEAD_DIM=128, intermediate=11008
+  Llama-13B:   H=5120, NH=40,   HEAD_DIM=128, intermediate=13824
+  Llama-70B:   H=8192, NH=64,   HEAD_DIM=128, intermediate=28672
+  Qwen2-7B:    H=3584, NH=28,   HEAD_DIM=128, intermediate=18944
+  DeepSeekV2:  H=5120, NH=64,   HEAD_DIM=128, kv_latent_dim=512, MoE
+
+=============================================================================
+估计过程推导 (Estimate Process Derivation)
+------------------------------------------
+延迟估计采用 Roofline 模型:  latency = max(compute_time, mem_time)
+
+  1) compute_time = total_flops / peak_flops
+     - 矩阵乘法 (matmul) → 2d_peak_flops
+     - 逐元素运算 (element-wise: add/mul) → 1d_peak_flops
+     - 特殊函数 (softmax/silu/rope) → sfu_peak_flops
+
+  2) mem_time = total_bytes / memory_bandwidth
+     - 考虑所有中间张量的读写字节数
+
+  3) 最终延迟 = max(compute, mem) * 1e6  (单位: μs)
+=============================================================================
+"""
+
 
 def parse_shape(shape_str):
     shapes = shape_str.split('|')

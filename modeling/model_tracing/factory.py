@@ -6,7 +6,6 @@ from .rotary import RotaryModeler
 from .attention import CoreAttentionModeler, CompositeAttentionModeler, MLAAttentionModeler
 from .mlp import MLPModeler
 from .moe import FusedMoEModeler, MoEModeler
-from .decoder import DecoderLayerModeler
 
 
 def is_linear(name):
