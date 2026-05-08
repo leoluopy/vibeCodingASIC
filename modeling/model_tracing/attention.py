@@ -4,40 +4,47 @@ HEAD_DIM = 128
 
 """
 典型形状示例 (CoreAttention - 单核 attention 计算):
-  prefill:  input=(1, 32, 1, 128), output=(1, 32, 1, 128) → B=1, NH=32, S=1, HEAD_DIM=128
-  decode:   input=(1, 32, 1, 128), output=(1, 32, 1, 128)
+  prefill:  input=(S, 4096)  → NH=32, S=seq_len, HEAD_DIM=128
+  decode:   input=(1, 4096)  → NH=32, S=1, HEAD_DIM=128
+  其中 4096 = NH * HEAD_DIM = 32 * 128
 
-估计推导:
-  Q @ K^T:   S=1 时 flops=2*NH*S*S*HEAD_DIM = 2*NH*1*1*128
-  attn @ V:  同上 2*NH*S*S*HEAD_DIM
-  matmul_flops = 4 * NH * S * S * HEAD_DIM
+计算推导 (per head, per sequence, 不含 batch 维):
 
-  Softmax:   每行: exp (SFU), sum (reduce), div (1d) → 3 ops / element
-  softmax_flops = 3 * NH * S * S
+  Q, K, V: (S, HEAD_DIM)
+
+  [1] Q @ K^T → attn_logits: (S, HEAD_DIM) @ (HEAD_DIM, S) → (S, S)
+      M=S, K=HEAD_DIM, N=S
+      flops_per_head = 2 * M * N * K = 2 * S * S * HEAD_DIM
+
+  [2] attn @ V → output: (S, S) @ (S, HEAD_DIM) → (S, HEAD_DIM)
+      M=S, K=S, N=HEAD_DIM
+      flops_per_head = 2 * M * N * K = 2 * S * HEAD_DIM * S
+                      = 2 * S * S * HEAD_DIM (与 [1] 相同)
+
+  单头总 matmul: 4 * S * S * HEAD_DIM
+  NH 头总计:    matmul_flops = 4 * NH * S * S * HEAD_DIM
+
+  Softmax (每行 S 个元素, exp+sum+div = 3 ops/元素, NH 行并行):
+  softmax_flops = NH * S * 3 * S = 3 * NH * S * S
 
   score_bytes = NH * S * S * 4  (fp32 中间分数)
 
   延迟 = max(matmul/2d_peak + softmax/sfu_peak, (in+out+score)/bandwidth)
---------------------------------------------------------------
-CompositeAttentionModeler - 完整的 QKV+RoPE+Attn+Output 复合:
-  Llama-7B:  output=(1, 1, 4096) → B=1, H=4096, NH=32
-  Llama-70B: output=(1, 1, 8192) → B=1, H=8192, NH=64
+  注: prefill 时 S 为 prompt 长度, decode 时 S=1
 
-  QKV proj:  x @ [Wq,Wk,Wv] = 3 个 linear → 3 * 2*B*H*H = 6BH^2
-  RoPE:      B*H*2 SFU ops
-  Attn matmul: 4*NH*S*S*HEAD_DIM
-  Attn softmax: 3*NH*S*S
-  Out proj:    2*B*H*H
-
-  Mem: in(B*H) + out(B*H) + qkv(3*B*H) + score(NH*S*S*4)
 --------------------------------------------------------------
 MLAAttentionModeler - DeepSeekV2 MLA (Multi-head Latent Attention):
-  prefill:  input=(1, 1, 512), output=(1, 1, 4096)  → B=1, S=1, latent_dim=512, H_out=4096
-  decode:   input=(1, 512), output=(1, 4096)
+  prefill:  input=(S, 512), output=(S, 4096)  → S=seq_len, latent_dim=512, H_out=4096
+  decode:   input=(1, 512),  output=(1, 4096)  → S=1, latent_dim=512, H_out=4096
 
   MLA 将 Q/KV 压缩到低维 latent space 后做 attention
-  本质是一个 matmul: x @ W_out,  x: (B,S,latent_dim), W_out: (H_out, latent_dim)
-  FLOPs = 2 * B * S * latent_dim * H_out
+  本质是一个 matmul: x @ W_out
+
+  x: (S, latent_dim), W_out: (latent_dim, H_out)
+  x @ W_out → (S, H_out)
+
+  M=S, K=latent_dim, N=H_out
+  flops = 2 * M * N * K = 2 * S * latent_dim * H_out
 """
 
 
@@ -56,7 +63,7 @@ class CoreAttentionModeler(BaseModeler):
         B = input_shape[0]
         H = input_shape[-1]
 
-        S = B
+        S = input_shape[1] if len(input_shape) >= 3 else B
         NH = max(1, H // HEAD_DIM)
 
         matmul_flops = 4 * NH * S * S * HEAD_DIM
@@ -72,43 +79,6 @@ class CoreAttentionModeler(BaseModeler):
         mem_time = (in_bytes + out_bytes + score_bytes) / cs['memory_bandwidth']
         return max(compute_time, mem_time) * 1e6
 
-
-class CompositeAttentionModeler(BaseModeler):
-
-    def estimate(self, name, args):
-        raw = parse_shape(args['output_shape'])
-        if isinstance(raw, list):
-            output_shape = raw[0]
-        else:
-            output_shape = raw
-        dtype = args.get('output_dtype', 'torch.float32')
-
-        B = output_shape[0]
-        H = output_shape[-1]
-        S = B
-        NH = H // HEAD_DIM
-
-        qkv_flops = 6 * B * H * H
-        rope_sfu = B * H * 2
-        attn_matmul = 4 * NH * S * S * HEAD_DIM
-        attn_softmax = 3 * NH * S * S
-        out_proj_flops = 2 * B * H * H
-
-        total_matmul = qkv_flops + attn_matmul + out_proj_flops
-        total_sfu = rope_sfu + attn_softmax
-
-        es = get_elem_size(dtype)
-        in_bytes = B * H * es
-        out_bytes = prod(output_shape) * es
-        qkv_bytes = B * 3 * H * es
-        score_bytes = NH * S * S * 4
-
-        total_bytes = in_bytes + out_bytes + qkv_bytes + score_bytes
-
-        cs = self.chip_specs
-        compute_time = total_matmul / cs['2d_peak_flops'] + total_sfu / cs['sfu_peak_flops']
-        mem_time = total_bytes / cs['memory_bandwidth']
-        return max(compute_time, mem_time) * 1e6
 
 
 class MLAAttentionModeler(BaseModeler):
