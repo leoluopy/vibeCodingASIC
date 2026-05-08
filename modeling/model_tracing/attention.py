@@ -24,12 +24,24 @@ HEAD_DIM = 128
   单头总 matmul: 4 * S * S * HEAD_DIM
   NH 头总计:    matmul_flops = 4 * NH * S * S * HEAD_DIM
 
-  Softmax (每行 S 个元素, exp+sum+div = 3 ops/元素, NH 行并行):
-  softmax_flops = NH * S * 3 * S = 3 * NH * S * S
+  Softmax输入Prefill和Decode维度分别是 [ NH, S, S]和 [ NH, 1, cached_S]，且都是对最后一维归一化）
+  Softmax 分解 (per row of S elements, NH heads):
+
+    exp(x_i):  S 次 exp                            → SFU
+    sum(exp):  S 次 add  (reduction)                → 1D
+    div:       S 次 div  (x_i / sum)                → 1D
+
+    per_row  = S exp (SFU) + S add (1D) + S div (1D)
+             = S (SFU) + 2*S (1D)
+
+    per_head = S * per_row = S*S (SFU) + 2*S*S (1D)
+    NH heads:
+      softmax_sfu = NH * S * S       (exp)
+      softmax_1d  = 2 * NH * S * S   (sum + div)
 
   score_bytes = NH * S * S * 4  (fp32 中间分数)
 
-  延迟 = max(matmul/2d_peak + softmax/sfu_peak, (in+out+score)/bandwidth)
+  延迟 = max(matmul/2d_peak + softmax_sfu/sfu_peak + softmax_1d/1d_peak, (in+out+score)/bandwidth)
   注: prefill 时 S 为 prompt 长度, decode 时 S=1
 
 --------------------------------------------------------------
@@ -67,7 +79,8 @@ class CoreAttentionModeler(BaseModeler):
         NH = max(1, H // HEAD_DIM)
 
         matmul_flops = 4 * NH * S * S * HEAD_DIM
-        softmax_flops = 3 * NH * S * S
+        softmax_sfu = NH * S * S          # exp
+        softmax_1d = 2 * NH * S * S       # sum + div
 
         es = get_elem_size(dtype)
         in_bytes = prod(input_shape) * es
@@ -75,7 +88,9 @@ class CoreAttentionModeler(BaseModeler):
         score_bytes = NH * S * S * 4
 
         cs = self.chip_specs
-        compute_time = matmul_flops / cs['2d_peak_flops'] + softmax_flops / cs['sfu_peak_flops']
+        compute_time = (matmul_flops / cs['2d_peak_flops']
+                        + softmax_sfu / cs['sfu_peak_flops']
+                        + softmax_1d / cs['1d_peak_flops'])
         mem_time = (in_bytes + out_bytes + score_bytes) / cs['memory_bandwidth']
         return max(compute_time, mem_time) * 1e6
 
