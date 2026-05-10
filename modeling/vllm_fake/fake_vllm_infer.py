@@ -7,7 +7,7 @@ import torch
 import importlib
 from transformers import AutoConfig, PretrainedConfig
 from vllm.config.vllm import set_current_vllm_config
-from fake_imple_patch import FakeTensorMode, to_fake_model, make_vllm_config
+from fake_imple_patch import FakeTensorMode, to_fake_model, make_vllm_config, wrap_moe_routers
 from vllm.outputs import RequestOutput, CompletionOutput
 
 from vllm import AsyncLLMEngine, AsyncEngineArgs, SamplingParams
@@ -154,6 +154,11 @@ async def _fake_generate(self, prompt, sampling_params, request_id):
                 setattr(root, attr, fake_mode.from_tensor(
                     torch.empty(b.shape, dtype=b.dtype, device=b.device)
                 ))
+
+        # Wrap non-Module routers (GroupedTopKRouter etc.) as nn.Module
+        # so ModelTracer can capture them.  Must be after to_fake_model
+        # so the router's tensor attributes are also converted.
+        wrap_moe_routers(model, fake_mode)
 
         input_ids = fake_mode.from_tensor(torch.randint(0, 100, (128,), device="meta"))
         positions = fake_mode.from_tensor(torch.arange(128, device="meta"))

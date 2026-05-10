@@ -3,6 +3,7 @@
 import os
 import typing
 import types as pytypes
+from collections.abc import Callable
 from unittest.mock import patch
 from contextlib import contextmanager
 
@@ -13,6 +14,7 @@ import torch._dynamo
 torch._dynamo.config.disable = True
 
 import torch
+import torch.nn as nn
 import torch.library
 import torch._library.infer_schema as infer_schema_mod
 from torch._subclasses.fake_tensor import FakeTensorMode
@@ -241,11 +243,82 @@ _linear_utils.cpu_unquantized_gemm = _patched_cpu_unquantized_gemm
 import vllm.model_executor.layers.fused_moe.runner.moe_runner as _moe_runner
 
 
+class _RouterTraceWrapper(nn.Module):
+    """Wraps a non-Module router (e.g. GroupedTopKRouter) as an nn.Module
+    so that ModelTracer can capture its invocation via nn.Module.__call__."""
+    def __init__(self, router):
+        super().__init__()
+        self._router = router
+
+    def forward(self, hidden_states, router_logits, input_ids=None):
+        return self._router.select_experts(
+            hidden_states, router_logits, input_ids=input_ids)
+
+    def select_experts(self, hidden_states, router_logits, *, input_ids=None):
+        return self(hidden_states, router_logits, input_ids=input_ids)
+
+
+_RouterTraceWrapper.__name__ = "GroupedTopKRouter"
+
+# layer_name -> (_RouterTraceWrapper, gate_or_None)
+# The gate must be applied to convert hidden_states -> router_logits before
+# routing (is_internal_router=True passes hidden_states as router_logits).
+_ROUTER_MAP: dict[str, tuple[_RouterTraceWrapper, Callable | None]] = {}
+
+
+def wrap_moe_routers(model, fake_mode=None):
+    """Find all FusedMoE layers in *model*, convert their router tensor
+    attributes to fake tensors, and wrap the router as nn.Module so
+    ModelTracer can trace the routing step."""
+    for module in model.modules():
+        if not hasattr(module, 'runner') or not hasattr(module.runner, 'router'):
+            continue
+        router = module.runner.router
+        if isinstance(router, nn.Module):
+            continue
+
+        # Convert the original router's tensor attributes to fake tensors
+        # (to_fake_model skips non-Module objects like GroupedTopKRouter).
+        if fake_mode is not None:
+            for attr_name, attr in list(vars(router).items()):
+                if isinstance(attr, torch.Tensor):
+                    fake_t = fake_mode.from_tensor(
+                        torch.empty(attr.shape, dtype=attr.dtype, device=attr.device))
+                    if isinstance(attr, nn.Parameter):
+                        setattr(router, attr_name,
+                                nn.Parameter(fake_t, requires_grad=attr.requires_grad))
+                    else:
+                        setattr(router, attr_name, fake_t)
+
+        wrapper = _RouterTraceWrapper(router)
+        parent_path = getattr(module, '_trace_name', '')
+        wrapper._trace_name = (
+            f"{parent_path}.GroupedTopKRouter" if parent_path else "GroupedTopKRouter")
+        module.add_module("GroupedTopKRouter", wrapper)
+        module.runner.router = wrapper
+        gate = getattr(module.runner, 'gate', None)
+        _ROUTER_MAP[module.layer_name] = (wrapper, gate)
+
+
 def _patched_moe_forward(hidden_states, router_logits, shared_experts_input, input_ids, layer_name):
+    lname = _moe_runner._resolve_layer_name(layer_name)
+    entry = _ROUTER_MAP.get(lname)
+    if entry is not None:
+        wrapper, gate = entry
+        if gate is not None:
+            router_logits, _ = gate(hidden_states)
+        wrapper(hidden_states, router_logits, input_ids=input_ids)
     return torch.empty_like(hidden_states)
 
 
 def _patched_moe_forward_shared(hidden_states, router_logits, shared_experts_input, input_ids, layer_name):
+    lname = _moe_runner._resolve_layer_name(layer_name)
+    entry = _ROUTER_MAP.get(lname)
+    if entry is not None:
+        wrapper, gate = entry
+        if gate is not None:
+            router_logits, _ = gate(hidden_states)
+        wrapper(hidden_states, router_logits, input_ids=input_ids)
     fused_out = torch.empty_like(hidden_states)
     if shared_experts_input is not None:
         shared_out = torch.empty_like(shared_experts_input)
