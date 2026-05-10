@@ -1,0 +1,229 @@
+{
+  "traceEvents": [
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 9675564033.657,
+      "dur": 5465.925,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.float32",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepSeekV2FusedQkvAProjLinear",
+      "ph": "X",
+      "ts": 9675569567.815,
+      "dur": 686.314,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 2112)",
+        "output_dtype": "torch.float32",
+        "module_path": "DeepSeekV2FusedQkvAProjLinear"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 9675570816.896,
+      "dur": 3816.402,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 1536)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 1536)",
+        "output_dtype": "torch.float32",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "ColumnParallelLinear",
+      "ph": "X",
+      "ts": 9675574656.033,
+      "dur": 461.926,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 1536)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 24576)",
+        "output_dtype": "torch.float32",
+        "module_path": "ColumnParallelLinear"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 9675575517.742,
+      "dur": 3590.525,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 512)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 512)",
+        "output_dtype": "torch.float32",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "RotaryEmbedding",
+      "ph": "X",
+      "ts": 9675581610.209,
+      "dur": 25551.943,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 128, 64) | (128, 1, 64)",
+        "output_dtype": "torch.float32 | torch.float32",
+        "module_path": "RotaryEmbedding"
+      }
+    },
+    {
+      "name": "MLAAttention",
+      "ph": "X",
+      "ts": 9675607804.128,
+      "dur": 1462.199,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 128, 192)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 16384)",
+        "output_dtype": "torch.float32",
+        "module_path": "MLAAttention"
+      }
+    },
+    {
+      "name": "RowParallelLinear",
+      "ph": "X",
+      "ts": 9675609282.867,
+      "dur": 445.874,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 16384)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.float32",
+        "module_path": "RowParallelLinear"
+      }
+    },
+    {
+      "name": "MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 9675569550.018,
+      "dur": 40203.07,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.float32",
+        "module_path": "MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV2MLAAttention",
+      "ph": "X",
+      "ts": 9675569527.033,
+      "dur": 40234.175,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.float32",
+        "module_path": "DeepseekV2MLAAttention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 9675609774.858,
+      "dur": 1504.494,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 7168) | (128, 7168)",
+        "output_dtype": "torch.float32 | torch.float32",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 9675612352.583,
+      "dur": 1659.433,
+      "pid": 0,
+      "tid": 0,
+      "cat": "DeepseekV2MoE",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.float32",
+        "module_path": "DeepseekV2MoE.experts"
+      }
+    },
+    {
+      "name": "DeepseekV2MoE",
+      "ph": "X",
+      "ts": 9675611300.653,
+      "dur": 3248.766,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.float32",
+        "module_path": "DeepseekV2MoE"
+      }
+    },
+    {
+      "name": "DeepseekV2DecoderLayer",
+      "ph": "X",
+      "ts": 9675563548.469,
+      "dur": 51020.367,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168) | (128, 7168)",
+        "output_dtype": "torch.float32 | torch.float32",
+        "module_path": "DeepseekV2DecoderLayer"
+      }
+    }
+  ],
+  "displayTimeUnit": "ms"
+}
