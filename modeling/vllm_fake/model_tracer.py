@@ -27,7 +27,7 @@ def _assign_trace_names() -> None:
     """Walk all ``nn.Module`` objects in memory and set ``_trace_name``."""
     _CONTAINER_TYPES = (nn.ModuleList, nn.ModuleDict, nn.ParameterList, nn.ParameterDict)
     seen: set[int] = set()
-    for obj in gc.get_objects():
+    for obj in gc.get_objects(0):
         try:
             if isinstance(obj, nn.Module) and id(obj) not in seen:
                 seen.add(id(obj))

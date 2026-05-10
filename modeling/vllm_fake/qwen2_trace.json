@@ -3,4641 +3,4641 @@
     {
       "name": "VocabParallelEmbedding",
       "ph": "X",
-      "ts": 698880278.599,
-      "dur": 557.534,
+      "ts": 8025153394.295,
+      "dur": 557.855,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.embed_tokens"
+        "module_path": "VocabParallelEmbedding"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 698880876.528,
-      "dur": 5213.076,
+      "ts": 8025153990.995,
+      "dur": 5251.643,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.0",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.0.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 698886118.245,
-      "dur": 1223.734,
+      "ts": 8025159273.963,
+      "dur": 1222.1,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.0.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.0.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 698887930.41,
-      "dur": 28816.477,
+      "ts": 8025161078.66,
+      "dur": 23469.932,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 698916780.147,
-      "dur": 6940.935,
+      "ts": 8025184580.743,
+      "dur": 6576.214,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.0.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.0.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 698923758.321,
-      "dur": 577.545,
+      "ts": 8025191177.418,
+      "dur": 455.102,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.0.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.0.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 698886105.304,
-      "dur": 38300.942,
+      "ts": 8025159258.53,
+      "dur": 32434.237,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.0",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.0.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 698924422.878,
-      "dur": 1638.493,
+      "ts": 8025191707.201,
+      "dur": 1556.811,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.0",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.0.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 698926108.227,
-      "dur": 455.922,
+      "ts": 8025193296.527,
+      "dur": 433.5,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.0.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.0.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 698926582.618,
-      "dur": 2906.215,
+      "ts": 8025193747.825,
+      "dur": 2664.219,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.0.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.0.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 698929509.805,
-      "dur": 456.878,
+      "ts": 8025196427.966,
+      "dur": 442.196,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.0.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.0.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 698926094.701,
-      "dur": 3889.969,
+      "ts": 8025193283.083,
+      "dur": 3603.474,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.0",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.0.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 698880860.309,
-      "dur": 49132.584,
+      "ts": 8025153976.834,
+      "dur": 42916.823,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.0"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 698930034.624,
-      "dur": 1183.033,
+      "ts": 8025196921.601,
+      "dur": 1165.452,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.1",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.1.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 698931249.719,
-      "dur": 367.464,
+      "ts": 8025198134.719,
+      "dur": 396.577,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.1.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.1.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 698932564.441,
-      "dur": 5834.556,
+      "ts": 8025198973.901,
+      "dur": 5611.035,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 698938429.441,
-      "dur": 1345.602,
+      "ts": 8025204608.556,
+      "dur": 1201.281,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.1.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.1.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 698939799.4,
-      "dur": 270.062,
+      "ts": 8025205825.264,
+      "dur": 179.676,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.1.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.1.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 698931236.986,
-      "dur": 8876.293,
+      "ts": 8025198110.703,
+      "dur": 7929.389,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.1",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.1.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 698940127.511,
-      "dur": 1071.406,
+      "ts": 8025206051.974,
+      "dur": 1138.012,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.1",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.1.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 698941229.0,
-      "dur": 172.696,
+      "ts": 8025207226.001,
+      "dur": 177.978,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.1.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.1.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 698941417.697,
-      "dur": 602.773,
+      "ts": 8025207420.365,
+      "dur": 659.48,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.1.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.1.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 698942034.347,
-      "dur": 191.635,
+      "ts": 8025208094.339,
+      "dur": 176.08,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.1.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.1.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 698941217.613,
-      "dur": 1023.406,
+      "ts": 8025207212.34,
+      "dur": 1072.102,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.1",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.1.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 698930017.687,
-      "dur": 12230.261,
+      "ts": 8025196907.445,
+      "dur": 11383.825,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.1"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 698942277.463,
-      "dur": 1101.317,
+      "ts": 8025208320.09,
+      "dur": 1068.923,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.2",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.2.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 698943409.913,
-      "dur": 342.722,
+      "ts": 8025209421.046,
+      "dur": 336.227,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.2.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.2.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 698944462.554,
-      "dur": 5927.823,
+      "ts": 8025210250.616,
+      "dur": 6290.22,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 698950419.713,
-      "dur": 1231.715,
+      "ts": 8025216577.856,
+      "dur": 1259.232,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.2.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.2.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 698951668.187,
-      "dur": 191.555,
+      "ts": 8025217855.035,
+      "dur": 228.289,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.2.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.2.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 698943397.754,
-      "dur": 8498.871,
+      "ts": 8025209407.788,
+      "dur": 8715.522,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.2",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.2.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 698951910.153,
-      "dur": 1058.608,
+      "ts": 8025218137.042,
+      "dur": 1078.198,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.2",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.2.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 698952998.522,
-      "dur": 209.143,
+      "ts": 8025219247.128,
+      "dur": 168.04,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.2.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.2.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 698953225.162,
-      "dur": 961.787,
+      "ts": 8025219430.644,
+      "dur": 612.189,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.2.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.2.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 698954201.95,
-      "dur": 174.356,
+      "ts": 8025220056.943,
+      "dur": 163.146,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.2.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.2.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 698952987.917,
-      "dur": 1403.192,
+      "ts": 8025219234.152,
+      "dur": 999.716,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.2",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.2.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 698942265.183,
-      "dur": 12132.89,
+      "ts": 8025208307.42,
+      "dur": 11932.794,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.2"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 698954422.984,
-      "dur": 1052.151,
+      "ts": 8025220265.613,
+      "dur": 1052.787,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.3",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.3.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 698955505.514,
-      "dur": 340.547,
+      "ts": 8025221351.286,
+      "dur": 337.74,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.3.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.3.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 698956341.901,
-      "dur": 6129.13,
+      "ts": 8025222170.149,
+      "dur": 5413.329,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 698962502.022,
-      "dur": 1229.491,
+      "ts": 8025227605.115,
+      "dur": 1154.233,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.3.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.3.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 698963746.893,
-      "dur": 212.433,
+      "ts": 8025228774.657,
+      "dur": 177.431,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.3.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.3.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 698955493.361,
-      "dur": 8528.077,
+      "ts": 8025221336.78,
+      "dur": 7648.125,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.3",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.3.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 698964040.522,
-      "dur": 1113.044,
+      "ts": 8025228997.027,
+      "dur": 1180.276,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.3",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.3.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 698965183.463,
-      "dur": 167.157,
+      "ts": 8025230210.359,
+      "dur": 168.943,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.3.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.3.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 698965366.486,
-      "dur": 588.674,
+      "ts": 8025230394.631,
+      "dur": 594.147,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.3.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.3.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 698965968.793,
-      "dur": 169.55,
+      "ts": 8025231009.205,
+      "dur": 169.065,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.3.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.3.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 698965172.655,
-      "dur": 979.651,
+      "ts": 8025230197.586,
+      "dur": 994.405,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.3",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.3.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 698954412.06,
-      "dur": 11747.028,
+      "ts": 8025220253.16,
+      "dur": 10945.499,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.3"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 698966183.179,
-      "dur": 1058.384,
+      "ts": 8025231223.247,
+      "dur": 1045.122,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.4",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.4.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 698967275.589,
-      "dur": 333.9,
+      "ts": 8025232300.306,
+      "dur": 351.614,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.4.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.4.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 698968078.502,
-      "dur": 5726.918,
+      "ts": 8025233140.785,
+      "dur": 5460.148,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 698973835.52,
-      "dur": 1427.248,
+      "ts": 8025238625.225,
+      "dur": 1209.043,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.4.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.4.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 698975278.799,
-      "dur": 185.792,
+      "ts": 8025239853.047,
+      "dur": 227.003,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.4.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.4.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 698967259.791,
-      "dur": 8255.017,
+      "ts": 8025232287.031,
+      "dur": 7827.417,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.4",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.4.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 698975534.017,
-      "dur": 1094.461,
+      "ts": 8025240130.532,
+      "dur": 1094.153,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.4",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.4.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 698976659.084,
-      "dur": 168.916,
+      "ts": 8025241255.826,
+      "dur": 163.57,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.4.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.4.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 698976844.187,
-      "dur": 602.638,
+      "ts": 8025241434.526,
+      "dur": 595.748,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.4.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.4.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 698977460.469,
-      "dur": 172.528,
+      "ts": 8025242044.278,
+      "dur": 165.17,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.4.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.4.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 698976647.584,
-      "dur": 1000.918,
+      "ts": 8025241243.349,
+      "dur": 979.818,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.4",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.4.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 698966172.186,
-      "dur": 11483.159,
+      "ts": 8025231211.125,
+      "dur": 11018.362,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.4"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 698977679.516,
-      "dur": 1048.027,
+      "ts": 8025242252.931,
+      "dur": 1108.228,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.5",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.5.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 698978758.734,
-      "dur": 349.424,
+      "ts": 8025243392.501,
+      "dur": 335.708,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.5.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.5.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 698979592.577,
-      "dur": 5645.987,
+      "ts": 8025244210.448,
+      "dur": 5675.072,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 698985270.975,
-      "dur": 1279.87,
+      "ts": 8025249911.826,
+      "dur": 1215.79,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.5.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.5.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 698986568.594,
-      "dur": 188.854,
+      "ts": 8025251142.921,
+      "dur": 180.327,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.5.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.5.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 698978746.335,
-      "dur": 8048.478,
+      "ts": 8025243379.23,
+      "dur": 7977.764,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.5",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.5.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 698986807.622,
-      "dur": 1053.563,
+      "ts": 8025251369.904,
+      "dur": 1071.219,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.5",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.5.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 698987891.763,
-      "dur": 180.064,
+      "ts": 8025252472.987,
+      "dur": 176.345,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.5.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.5.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 698988087.572,
-      "dur": 586.156,
+      "ts": 8025252665.556,
+      "dur": 715.323,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.5.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.5.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 698988687.681,
-      "dur": 162.649,
+      "ts": 8025253394.732,
+      "dur": 165.432,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.5.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.5.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 698987880.209,
-      "dur": 983.786,
+      "ts": 8025252460.227,
+      "dur": 1113.945,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.5",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.5.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 698977668.631,
-      "dur": 11201.699,
+      "ts": 8025242240.979,
+      "dur": 11339.881,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.5"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 698988893.817,
-      "dur": 1172.055,
+      "ts": 8025253606.225,
+      "dur": 1055.558,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.6",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.6.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 698990100.286,
-      "dur": 346.891,
+      "ts": 8025254693.102,
+      "dur": 358.424,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.6.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.6.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 698990986.207,
-      "dur": 8071.765,
+      "ts": 8025255487.439,
+      "dur": 5441.971,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 698999096.968,
-      "dur": 1878.555,
+      "ts": 8025260951.822,
+      "dur": 1298.062,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.6.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.6.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699000997.085,
-      "dur": 209.772,
+      "ts": 8025262265.284,
+      "dur": 174.742,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.6.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.6.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 698990087.087,
-      "dur": 11161.128,
+      "ts": 8025254679.707,
+      "dur": 7792.434,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.6",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.6.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699001262.234,
-      "dur": 1324.465,
+      "ts": 8025262483.95,
+      "dur": 1230.75,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.6",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.6.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 699002617.161,
-      "dur": 171.617,
+      "ts": 8025263747.394,
+      "dur": 172.234,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.6.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.6.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 699002804.821,
-      "dur": 612.836,
+      "ts": 8025263935.611,
+      "dur": 760.132,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.6.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.6.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699003431.336,
-      "dur": 161.452,
+      "ts": 8025264709.726,
+      "dur": 164.864,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.6.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.6.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 699002606.544,
-      "dur": 1000.228,
+      "ts": 8025263734.962,
+      "dur": 1153.609,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.6",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.6.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 698988883.241,
-      "dur": 14730.406,
+      "ts": 8025253594.121,
+      "dur": 11300.833,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.6"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699003638.329,
-      "dur": 1021.189,
+      "ts": 8025264919.416,
+      "dur": 1054.157,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.7",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.7.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 699004689.853,
-      "dur": 344.493,
+      "ts": 8025266012.115,
+      "dur": 345.393,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.7.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.7.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 699005507.961,
-      "dur": 5990.318,
+      "ts": 8025266824.525,
+      "dur": 5437.939,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 699011534.818,
-      "dur": 1526.164,
+      "ts": 8025272285.357,
+      "dur": 1285.431,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.7.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.7.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699013080.957,
-      "dur": 198.978,
+      "ts": 8025273585.301,
+      "dur": 179.369,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.7.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.7.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 699004678.041,
-      "dur": 8646.171,
+      "ts": 8025265991.887,
+      "dur": 7813.722,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.7",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.7.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699013338.53,
-      "dur": 1083.783,
+      "ts": 8025273818.828,
+      "dur": 1134.803,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.7",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.7.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 699014453.908,
-      "dur": 171.467,
+      "ts": 8025274986.314,
+      "dur": 201.773,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.7.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.7.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 699014642.259,
-      "dur": 611.638,
+      "ts": 8025275204.268,
+      "dur": 595.793,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.7.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.7.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699015267.714,
-      "dur": 169.346,
+      "ts": 8025275813.387,
+      "dur": 173.319,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.7.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.7.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 699014442.654,
-      "dur": 1008.472,
+      "ts": 8025274973.134,
+      "dur": 1034.605,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.7",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.7.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 699003627.8,
-      "dur": 11830.222,
+      "ts": 8025264907.315,
+      "dur": 11112.499,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.7"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699015483.366,
-      "dur": 1062.431,
+      "ts": 8025276056.824,
+      "dur": 1143.602,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.8",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.8.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 699016576.328,
-      "dur": 341.502,
+      "ts": 8025277239.02,
+      "dur": 341.293,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.8.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.8.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 699017395.901,
-      "dur": 5279.185,
+      "ts": 8025278091.407,
+      "dur": 5581.344,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 699022699.623,
-      "dur": 1203.542,
+      "ts": 8025283706.442,
+      "dur": 1321.785,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.8.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.8.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699023920.873,
-      "dur": 194.511,
+      "ts": 8025285045.99,
+      "dur": 190.313,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.8.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.8.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 699016564.569,
-      "dur": 7591.976,
+      "ts": 8025277225.226,
+      "dur": 8049.513,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.8",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.8.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699024170.142,
-      "dur": 1058.729,
+      "ts": 8025285288.258,
+      "dur": 1066.098,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.8",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.8.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 699025260.294,
-      "dur": 164.444,
+      "ts": 8025286387.166,
+      "dur": 166.997,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.8.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.8.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 699025441.294,
-      "dur": 591.945,
+      "ts": 8025286569.539,
+      "dur": 665.067,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.8.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.8.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699026047.522,
-      "dur": 160.319,
+      "ts": 8025287248.728,
+      "dur": 162.159,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.8.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.8.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 699025249.238,
-      "dur": 972.568,
+      "ts": 8025286373.845,
+      "dur": 1050.987,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.8",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.8.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 699015472.076,
-      "dur": 10756.464,
+      "ts": 8025276039.323,
+      "dur": 11391.972,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.8"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699026261.711,
-      "dur": 1017.628,
+      "ts": 8025287462.981,
+      "dur": 1044.623,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.9",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.9.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 699027327.299,
-      "dur": 536.526,
+      "ts": 8025288538.989,
+      "dur": 327.128,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.9.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.9.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 699028703.123,
-      "dur": 5717.05,
+      "ts": 8025289382.233,
+      "dur": 5406.885,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 699034451.494,
-      "dur": 1209.843,
+      "ts": 8025294810.865,
+      "dur": 1128.937,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.9.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.9.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699035678.056,
-      "dur": 194.91,
+      "ts": 8025295954.235,
+      "dur": 175.67,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.9.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.9.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 699027302.383,
-      "dur": 8608.571,
+      "ts": 8025288525.504,
+      "dur": 7637.617,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.9",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.9.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699035925.2,
-      "dur": 1027.241,
+      "ts": 8025296174.488,
+      "dur": 1030.101,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.9",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.9.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 699036983.229,
-      "dur": 174.866,
+      "ts": 8025297237.334,
+      "dur": 167.702,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.9.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.9.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 699037174.698,
-      "dur": 571.691,
+      "ts": 8025297421.132,
+      "dur": 593.423,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.9.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.9.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699037760.224,
-      "dur": 169.699,
+      "ts": 8025298028.934,
+      "dur": 170.409,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.9.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.9.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 699036972.004,
-      "dur": 972.067,
+      "ts": 8025297224.853,
+      "dur": 988.299,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.9",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.9.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 699026250.526,
-      "dur": 11700.282,
+      "ts": 8025287450.423,
+      "dur": 10769.034,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.9"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699037975.276,
-      "dur": 1002.838,
+      "ts": 8025298244.426,
+      "dur": 1012.083,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.10",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.10.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 699039013.859,
-      "dur": 327.682,
+      "ts": 8025299287.244,
+      "dur": 333.081,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.10.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.10.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 699039804.512,
-      "dur": 5904.052,
+      "ts": 8025300100.064,
+      "dur": 5394.179,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 699045739.224,
-      "dur": 1209.712,
+      "ts": 8025305518.455,
+      "dur": 1161.229,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.10.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.10.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699046965.628,
-      "dur": 191.476,
+      "ts": 8025306694.424,
+      "dur": 170.452,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.10.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.10.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 699038996.477,
-      "dur": 8197.691,
+      "ts": 8025299274.181,
+      "dur": 7624.527,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.10",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.10.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699047207.659,
-      "dur": 1110.338,
+      "ts": 8025306910.738,
+      "dur": 1032.311,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.10",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.10.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 699048349.733,
-      "dur": 264.19,
+      "ts": 8025307974.503,
+      "dur": 227.511,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.10.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.10.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 699048635.831,
-      "dur": 896.568,
+      "ts": 8025308223.33,
+      "dur": 566.126,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.10.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.10.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699049549.61,
-      "dur": 242.732,
+      "ts": 8025308803.074,
+      "dur": 158.978,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.10.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.10.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 699048337.751,
-      "dur": 1473.034,
+      "ts": 8025307962.024,
+      "dur": 1013.809,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.10",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.10.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 699037964.129,
-      "dur": 11857.409,
+      "ts": 8025298232.359,
+      "dur": 10753.48,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.10"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699049861.37,
-      "dur": 1056.638,
+      "ts": 8025309021.524,
+      "dur": 1141.529,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.11",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.11.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 699050948.758,
-      "dur": 349.265,
+      "ts": 8025310204.537,
+      "dur": 357.176,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.11.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.11.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 699051794.718,
-      "dur": 6229.882,
+      "ts": 8025310997.166,
+      "dur": 5358.409,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 699058054.121,
-      "dur": 1236.154,
+      "ts": 8025316381.925,
+      "dur": 1187.747,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.11.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.11.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699059308.093,
-      "dur": 183.839,
+      "ts": 8025317585.076,
+      "dur": 184.294,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.11.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.11.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 699050936.727,
-      "dur": 8595.084,
+      "ts": 8025310186.148,
+      "dur": 7618.486,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.11",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.11.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699059545.387,
-      "dur": 1022.763,
+      "ts": 8025317816.952,
+      "dur": 1008.676,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.11",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.11.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 699060597.804,
-      "dur": 163.513,
+      "ts": 8025318870.23,
+      "dur": 211.756,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.11.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.11.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 699060777.498,
-      "dur": 603.582,
+      "ts": 8025319097.927,
+      "dur": 570.378,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.11.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.11.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699061395.863,
-      "dur": 165.342,
+      "ts": 8025319682.204,
+      "dur": 159.963,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.11.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.11.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 699060586.818,
-      "dur": 989.173,
+      "ts": 8025318852.817,
+      "dur": 1003.048,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.11",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.11.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 699049846.549,
-      "dur": 11736.409,
+      "ts": 8025308997.983,
+      "dur": 10864.202,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.11"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699061608.888,
-      "dur": 1033.777,
+      "ts": 8025319893.971,
+      "dur": 1034.541,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.12",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.12.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 699062674.129,
-      "dur": 357.517,
+      "ts": 8025320970.824,
+      "dur": 344.817,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.12.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.12.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 699063592.345,
-      "dur": 5660.921,
+      "ts": 8025321749.641,
+      "dur": 5329.162,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 699069281.307,
-      "dur": 1205.606,
+      "ts": 8025327100.431,
+      "dur": 1119.673,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.12.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.12.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699070504.396,
-      "dur": 190.361,
+      "ts": 8025328235.639,
+      "dur": 167.446,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.12.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.12.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 699062661.84,
-      "dur": 8070.3,
+      "ts": 8025320947.189,
+      "dur": 7487.806,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.12",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.12.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699070745.783,
-      "dur": 1037.676,
+      "ts": 8025328446.206,
+      "dur": 993.492,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.12",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.12.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 699071815.126,
-      "dur": 166.862,
+      "ts": 8025329469.993,
+      "dur": 160.038,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.12.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.12.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 699071997.929,
-      "dur": 576.794,
+      "ts": 8025329645.982,
+      "dur": 566.904,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.12.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.12.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699072592.569,
-      "dur": 269.313,
+      "ts": 8025330227.191,
+      "dur": 164.865,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.12.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.12.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 699071803.784,
-      "dur": 1077.266,
+      "ts": 8025329458.35,
+      "dur": 947.604,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.12",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.12.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 699061597.695,
-      "dur": 11294.042,
+      "ts": 8025319874.692,
+      "dur": 10537.741,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.12"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699072937.763,
-      "dur": 1468.034,
+      "ts": 8025330437.427,
+      "dur": 988.333,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.13",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.13.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 699074449.155,
-      "dur": 564.887,
+      "ts": 8025331461.676,
+      "dur": 333.024,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.13.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.13.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 699075536.587,
-      "dur": 5775.134,
+      "ts": 8025332240.646,
+      "dur": 5186.217,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 699081351.136,
-      "dur": 1216.391,
+      "ts": 8025337449.512,
+      "dur": 1160.476,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.13.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.13.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699082582.648,
-      "dur": 183.526,
+      "ts": 8025338624.683,
+      "dur": 170.248,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.13.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.13.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 699074432.774,
-      "dur": 8371.115,
+      "ts": 8025331444.198,
+      "dur": 7384.345,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.13",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.13.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699082817.599,
-      "dur": 1128.673,
+      "ts": 8025338840.775,
+      "dur": 997.262,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.13",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.13.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 699083976.836,
-      "dur": 171.249,
+      "ts": 8025339868.848,
+      "dur": 170.955,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.13.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.13.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 699084164.309,
-      "dur": 589.937,
+      "ts": 8025340055.694,
+      "dur": 583.215,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.13.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.13.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699084768.206,
-      "dur": 157.183,
+      "ts": 8025340656.977,
+      "dur": 174.408,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.13.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.13.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 699083965.695,
-      "dur": 973.885,
+      "ts": 8025339856.835,
+      "dur": 988.776,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.13",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.13.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 699072915.796,
-      "dur": 12030.284,
+      "ts": 8025330425.11,
+      "dur": 10427.452,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.13"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699084971.19,
-      "dur": 1015.22,
+      "ts": 8025340879.76,
+      "dur": 995.87,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.14",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.14.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 699086022.962,
-      "dur": 330.498,
+      "ts": 8025341907.519,
+      "dur": 336.71,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.14.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.14.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 699086822.959,
-      "dur": 5830.315,
+      "ts": 8025342720.943,
+      "dur": 5248.368,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 699092688.474,
-      "dur": 1266.793,
+      "ts": 8025348005.77,
+      "dur": 1186.749,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.14.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.14.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699093977.503,
-      "dur": 250.867,
+      "ts": 8025349211.262,
+      "dur": 187.595,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.14.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.14.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 699086010.641,
-      "dur": 8264.47,
+      "ts": 8025341893.659,
+      "dur": 7545.19,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.14",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.14.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699094289.94,
-      "dur": 1152.005,
+      "ts": 8025349452.541,
+      "dur": 1033.592,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.14",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.14.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 699095473.05,
-      "dur": 172.32,
+      "ts": 8025350519.068,
+      "dur": 163.824,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.14.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.14.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 699095661.374,
-      "dur": 624.951,
+      "ts": 8025350698.595,
+      "dur": 575.834,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.14.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.14.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699096300.718,
-      "dur": 166.536,
+      "ts": 8025351288.563,
+      "dur": 158.904,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.14.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.14.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 699095462.035,
-      "dur": 1019.225,
+      "ts": 8025350505.201,
+      "dur": 955.778,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.14",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.14.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 699084959.989,
-      "dur": 11528.002,
+      "ts": 8025340866.902,
+      "dur": 10600.327,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.14"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699096512.29,
-      "dur": 1006.042,
+      "ts": 8025351494.13,
+      "dur": 992.214,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.15",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.15.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 699097549.948,
-      "dur": 326.139,
+      "ts": 8025352517.86,
+      "dur": 324.561,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.15.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.15.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 699098366.277,
-      "dur": 5084.953,
+      "ts": 8025353314.555,
+      "dur": 5070.713,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 699103475.718,
-      "dur": 1162.568,
+      "ts": 8025358408.104,
+      "dur": 1138.916,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.15.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.15.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699104653.993,
-      "dur": 187.949,
+      "ts": 8025359561.612,
+      "dur": 166.382,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.15.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.15.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 699097537.416,
-      "dur": 7341.087,
+      "ts": 8025352504.239,
+      "dur": 7256.364,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.15",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.15.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699104891.097,
-      "dur": 1015.194,
+      "ts": 8025359771.92,
+      "dur": 985.548,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.15",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.15.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 699105935.498,
-      "dur": 166.191,
+      "ts": 8025360788.595,
+      "dur": 158.352,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.15.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.15.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 699106117.621,
-      "dur": 574.54,
+      "ts": 8025360961.9,
+      "dur": 567.168,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.15.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.15.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699106706.531,
-      "dur": 160.917,
+      "ts": 8025361543.158,
+      "dur": 158.575,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.15.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.15.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 699105925.118,
-      "dur": 956.634,
+      "ts": 8025360776.14,
+      "dur": 939.08,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.15",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.15.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 699096500.784,
-      "dur": 10388.011,
+      "ts": 8025351481.21,
+      "dur": 10240.423,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.15"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699106914.029,
-      "dur": 1037.858,
+      "ts": 8025361745.38,
+      "dur": 1016.493,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.16",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.16.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 699107987.245,
-      "dur": 335.054,
+      "ts": 8025362792.48,
+      "dur": 343.453,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.16.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.16.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 699108810.614,
-      "dur": 5356.553,
+      "ts": 8025363581.517,
+      "dur": 5090.999,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 699114202.279,
-      "dur": 1502.11,
+      "ts": 8025368696.441,
+      "dur": 1149.695,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.16.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.16.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699115722.911,
-      "dur": 191.942,
+      "ts": 8025369861.187,
+      "dur": 185.544,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.16.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.16.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 699107971.002,
-      "dur": 7986.341,
+      "ts": 8025362779.725,
+      "dur": 7301.358,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.16",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.16.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699115975.492,
-      "dur": 1041.472,
+      "ts": 8025370100.062,
+      "dur": 1015.814,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.16",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.16.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 699117048.002,
-      "dur": 175.324,
+      "ts": 8025371147.803,
+      "dur": 164.887,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.16.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.16.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 699117245.504,
-      "dur": 574.854,
+      "ts": 8025371332.943,
+      "dur": 566.122,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.16.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.16.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699117834.338,
-      "dur": 161.958,
+      "ts": 8025371912.591,
+      "dur": 166.607,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.16.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.16.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 699117036.665,
-      "dur": 983.671,
+      "ts": 8025371135.275,
+      "dur": 957.752,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.16",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.16.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 699106902.847,
-      "dur": 11124.493,
+      "ts": 8025361733.003,
+      "dur": 10366.248,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.16"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699118052.974,
-      "dur": 1005.539,
+      "ts": 8025372123.591,
+      "dur": 1000.173,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.17",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.17.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 699119089.41,
-      "dur": 327.413,
+      "ts": 8025373154.927,
+      "dur": 330.406,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.17.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.17.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 699119900.785,
-      "dur": 5157.575,
+      "ts": 8025373931.975,
+      "dur": 5112.66,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 699125087.104,
-      "dur": 1197.506,
+      "ts": 8025379068.706,
+      "dur": 1252.421,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.17.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.17.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699126303.458,
-      "dur": 182.399,
+      "ts": 8025380343.366,
+      "dur": 218.747,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.17.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.17.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 699119077.092,
-      "dur": 7449.363,
+      "ts": 8025373141.316,
+      "dur": 7483.431,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.17",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.17.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699126540.557,
-      "dur": 1029.464,
+      "ts": 8025380645.792,
+      "dur": 1395.431,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.17",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.17.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 699127600.424,
-      "dur": 162.302,
+      "ts": 8025382074.135,
+      "dur": 165.906,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.17.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.17.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 699127779.009,
-      "dur": 587.829,
+      "ts": 8025382255.657,
+      "dur": 819.306,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.17.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.17.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699128381.082,
-      "dur": 158.758,
+      "ts": 8025383092.066,
+      "dur": 239.315,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.17.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.17.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 699127589.299,
-      "dur": 964.548,
+      "ts": 8025382060.442,
+      "dur": 1288.644,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.17",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.17.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 699118041.925,
-      "dur": 10518.862,
+      "ts": 8025372111.824,
+      "dur": 11247.832,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.17"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699128585.027,
-      "dur": 992.595,
+      "ts": 8025383403.741,
+      "dur": 1321.603,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.18",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.18.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 699129612.585,
-      "dur": 324.368,
+      "ts": 8025384767.449,
+      "dur": 473.544,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.18.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.18.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 699130414.184,
-      "dur": 5608.725,
+      "ts": 8025385808.675,
+      "dur": 5462.819,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 699136048.18,
-      "dur": 1161.856,
+      "ts": 8025391293.903,
+      "dur": 1169.071,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.18.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.18.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699137225.833,
-      "dur": 172.39,
+      "ts": 8025392477.855,
+      "dur": 168.835,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.18.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.18.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 699129596.387,
-      "dur": 7837.43,
+      "ts": 8025384748.522,
+      "dur": 7930.492,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.18",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.18.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699137446.412,
-      "dur": 1012.085,
+      "ts": 8025392690.937,
+      "dur": 1017.921,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.18",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.18.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 699138487.9,
-      "dur": 163.748,
+      "ts": 8025393738.977,
+      "dur": 162.39,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.18.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.18.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 699138667.631,
-      "dur": 574.988,
+      "ts": 8025393923.336,
+      "dur": 628.867,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.18.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.18.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699139256.23,
-      "dur": 162.079,
+      "ts": 8025394565.512,
+      "dur": 158.786,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.18.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.18.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 699138477.365,
-      "dur": 955.094,
+      "ts": 8025393727.547,
+      "dur": 1010.643,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.18",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.18.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 699128574.55,
-      "dur": 10864.582,
+      "ts": 8025383380.543,
+      "dur": 11364.191,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.18"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699139462.982,
-      "dur": 1023.412,
+      "ts": 8025394768.924,
+      "dur": 1146.199,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 699140520.288,
-      "dur": 337.024,
+      "ts": 8025395947.176,
+      "dur": 413.356,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 699141359.777,
-      "dur": 5266.508,
+      "ts": 8025396802.75,
+      "dur": 6081.976,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 699146658.003,
-      "dur": 1265.224,
+      "ts": 8025402910.106,
+      "dur": 1314.786,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699147945.945,
-      "dur": 202.342,
+      "ts": 8025404240.713,
+      "dur": 178.816,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 699140507.495,
-      "dur": 7685.058,
+      "ts": 8025395933.363,
+      "dur": 8520.298,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699148206.375,
-      "dur": 1042.349,
+      "ts": 8025404466.764,
+      "dur": 1113.858,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 699149278.875,
-      "dur": 164.735,
+      "ts": 8025405611.904,
+      "dur": 161.808,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.19.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 699149459.425,
-      "dur": 583.791,
+      "ts": 8025405789.187,
+      "dur": 642.51,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.19.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699150057.291,
-      "dur": 167.117,
+      "ts": 8025406445.589,
+      "dur": 159.94,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.19.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 699149267.542,
-      "dur": 971.208,
+      "ts": 8025405599.139,
+      "dur": 1020.198,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.19.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 699139452.321,
-      "dur": 10793.282,
+      "ts": 8025394756.443,
+      "dur": 11870.015,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699150269.791,
-      "dur": 1029.535,
+      "ts": 8025406651.82,
+      "dur": 1049.01,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.20",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.20.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 699151329.488,
-      "dur": 324.93,
+      "ts": 8025407736.189,
+      "dur": 372.639,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.20.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.20.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 699152136.331,
-      "dur": 7521.056,
+      "ts": 8025408585.181,
+      "dur": 5436.657,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 699159701.007,
-      "dur": 1850.614,
+      "ts": 8025414054.814,
+      "dur": 1232.238,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.20.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.20.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699161574.801,
-      "dur": 319.849,
+      "ts": 8025415303.65,
+      "dur": 229.686,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.20.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.20.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 699151317.574,
-      "dur": 10640.306,
+      "ts": 8025407721.871,
+      "dur": 7853.236,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.20",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.20.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699161981.47,
-      "dur": 1131.116,
+      "ts": 8025415589.155,
+      "dur": 1044.853,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.20",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.20.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 699163154.056,
-      "dur": 254.297,
+      "ts": 8025416666.731,
+      "dur": 174.452,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.20.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.20.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 699163428.696,
-      "dur": 821.85,
+      "ts": 8025416857.388,
+      "dur": 579.753,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.20.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.20.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699164267.62,
-      "dur": 251.184,
+      "ts": 8025417450.664,
+      "dur": 178.897,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.20.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.20.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 699163139.123,
-      "dur": 1399.894,
+      "ts": 8025416653.536,
+      "dur": 990.421,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.20",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.20.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 699150258.793,
-      "dur": 14296.282,
+      "ts": 8025406639.189,
+      "dur": 11016.007,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.20"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699164593.342,
-      "dur": 1527.457,
+      "ts": 8025417683.375,
+      "dur": 1006.109,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.21",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.21.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 699166151.193,
-      "dur": 330.968,
+      "ts": 8025418721.578,
+      "dur": 368.142,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.21.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.21.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 699166958.963,
-      "dur": 5158.117,
+      "ts": 8025419547.495,
+      "dur": 5368.327,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 699172140.983,
-      "dur": 1175.698,
+      "ts": 8025424938.478,
+      "dur": 1194.515,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.21.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.21.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699173333.646,
-      "dur": 220.981,
+      "ts": 8025426148.177,
+      "dur": 170.603,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.21.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.21.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 699166139.475,
-      "dur": 7468.878,
+      "ts": 8025418707.745,
+      "dur": 7643.481,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.21",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.21.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699173624.551,
-      "dur": 1651.712,
+      "ts": 8025426363.028,
+      "dur": 1064.043,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.21",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.21.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 699175319.703,
-      "dur": 261.83,
+      "ts": 8025427458.037,
+      "dur": 158.731,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.21.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.21.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 699175603.117,
-      "dur": 641.088,
+      "ts": 8025427631.887,
+      "dur": 659.247,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.21.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.21.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699176259.259,
-      "dur": 168.512,
+      "ts": 8025428305.111,
+      "dur": 161.841,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.21.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.21.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 699175303.682,
-      "dur": 1138.527,
+      "ts": 8025427445.515,
+      "dur": 1035.331,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.21",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.21.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 699164578.147,
-      "dur": 11871.304,
+      "ts": 8025417670.237,
+      "dur": 10817.04,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.21"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699176484.017,
-      "dur": 1117.956,
+      "ts": 8025428514.801,
+      "dur": 1100.097,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.22",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.22.input_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 699177663.991,
-      "dur": 616.121,
+      "ts": 8025429646.017,
+      "dur": 326.468,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.22.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.22.self_attn.qkv_proj"
+        "module_path": "QKVParallelLinear"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 699179185.277,
-      "dur": 6518.822,
+      "ts": 8025430442.622,
+      "dur": 5231.631,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 699185743.404,
-      "dur": 1293.416,
+      "ts": 8025435709.246,
+      "dur": 1169.23,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.22.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.22.self_attn.attn"
+        "module_path": "Attention"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699187060.341,
-      "dur": 201.532,
+      "ts": 8025436894.867,
+      "dur": 190.783,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.22.self_attn",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.22.self_attn.o_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 699177640.021,
-      "dur": 9669.871,
+      "ts": 8025429632.995,
+      "dur": 7486.95,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.22",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.22.self_attn"
+        "module_path": "Qwen2Attention"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699187325.306,
-      "dur": 1255.542,
+      "ts": 8025437132.882,
+      "dur": 1094.949,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.22",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.22.post_attention_layernorm"
+        "module_path": "RMSNorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 699188616.292,
-      "dur": 181.829,
+      "ts": 8025438259.438,
+      "dur": 162.703,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.22.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.22.mlp.gate_up_proj"
+        "module_path": "MergedColumnParallelLinear"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 699188814.871,
-      "dur": 612.649,
+      "ts": 8025438438.061,
+      "dur": 635.511,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.22.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.22.mlp.act_fn"
+        "module_path": "SiluAndMul"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699189442.785,
-      "dur": 187.569,
+      "ts": 8025439087.536,
+      "dur": 160.765,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.22.mlp",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.22.mlp.down_proj"
+        "module_path": "RowParallelLinear"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 699188603.823,
-      "dur": 1045.656,
+      "ts": 8025438246.807,
+      "dur": 1015.575,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.22",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.22.mlp"
+        "module_path": "Qwen2MLP"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 699176471.844,
-      "dur": 13189.589,
+      "ts": 8025428502.426,
+      "dur": 10766.306,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.22"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699189703.534,
-      "dur": 1828.001,
+      "ts": 8025439293.699,
+      "dur": 1029.486,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.23",
+      "cat": "Qwen2DecoderLayer",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.23.input_layernorm"
+        "module_path": "Qwen2DecoderLayer.input_layernorm"
       }
     },
     {
       "name": "QKVParallelLinear",
       "ph": "X",
-      "ts": 699191595.606,
-      "dur": 608.86,
+      "ts": 8025440353.405,
+      "dur": 336.907,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.23.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 1152)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.23.self_attn.qkv_proj"
+        "module_path": "Qwen2DecoderLayer.self_attn.qkv_proj"
       }
     },
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 699192963.836,
-      "dur": 7779.65,
+      "ts": 8025441145.742,
+      "dur": 5201.963,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.19.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 128)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.19.self_attn.rotary_emb"
+        "module_path": "Qwen2DecoderLayer.self_attn.rotary_emb"
       }
     },
     {
       "name": "Attention",
       "ph": "X",
-      "ts": 699200806.922,
-      "dur": 2053.39,
+      "ts": 8025446370.515,
+      "dur": 1177.375,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.23.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.23.self_attn.attn"
+        "module_path": "Qwen2DecoderLayer.self_attn.attn"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699202889.331,
-      "dur": 311.984,
+      "ts": 8025447564.857,
+      "dur": 176.185,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.23.self_attn",
+      "cat": "Qwen2DecoderLayer.self_attn",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.23.self_attn.o_proj"
+        "module_path": "Qwen2DecoderLayer.self_attn.o_proj"
       }
     },
     {
       "name": "Qwen2Attention",
       "ph": "X",
-      "ts": 699191567.621,
-      "dur": 11707.329,
+      "ts": 8025440341.216,
+      "dur": 7435.714,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.23",
+      "cat": "Qwen2DecoderLayer",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.23.self_attn"
+        "module_path": "Qwen2DecoderLayer.self_attn"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699203297.882,
-      "dur": 1775.178,
+      "ts": 8025447789.699,
+      "dur": 1024.013,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.23",
+      "cat": "Qwen2DecoderLayer",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.23.post_attention_layernorm"
+        "module_path": "Qwen2DecoderLayer.post_attention_layernorm"
       }
     },
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 699205124.515,
-      "dur": 284.862,
+      "ts": 8025448843.822,
+      "dur": 167.477,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.23.mlp",
+      "cat": "Qwen2DecoderLayer.mlp",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 9728)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.23.mlp.gate_up_proj"
+        "module_path": "Qwen2DecoderLayer.mlp.gate_up_proj"
       }
     },
     {
       "name": "SiluAndMul",
       "ph": "X",
-      "ts": 699205433.686,
-      "dur": 984.79,
+      "ts": 8025449027.12,
+      "dur": 566.086,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.23.mlp",
+      "cat": "Qwen2DecoderLayer.mlp",
       "args": {
         "input_shape": "(128, 9728)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 4864)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.23.mlp.act_fn"
+        "module_path": "Qwen2DecoderLayer.mlp.act_fn"
       }
     },
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 699206441.641,
-      "dur": 278.0,
+      "ts": 8025449606.526,
+      "dur": 172.019,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.23.mlp",
+      "cat": "Qwen2DecoderLayer.mlp",
       "args": {
         "input_shape": "(128, 4864)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.23.mlp.down_proj"
+        "module_path": "Qwen2DecoderLayer.mlp.down_proj"
       }
     },
     {
       "name": "Qwen2MLP",
       "ph": "X",
-      "ts": 699205105.784,
-      "dur": 1637.246,
+      "ts": 8025448832.61,
+      "dur": 960.02,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers.23",
+      "cat": "Qwen2DecoderLayer",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896)",
         "output_dtype": "torch.float32",
-        "module_path": "Qwen2Model.layers.23.mlp"
+        "module_path": "Qwen2DecoderLayer.mlp"
       }
     },
     {
       "name": "Qwen2DecoderLayer",
       "ph": "X",
-      "ts": 699189687.261,
-      "dur": 17069.45,
+      "ts": 8025439281.481,
+      "dur": 10517.386,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model.layers",
+      "cat": "root",
       "args": {
         "input_shape": "(128,)",
         "input_dtype": "torch.int64",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.layers.23"
+        "module_path": "Qwen2DecoderLayer"
       }
     },
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 699206790.962,
-      "dur": 1307.851,
+      "ts": 8025449815.795,
+      "dur": 1005.929,
       "pid": 0,
       "tid": 0,
-      "cat": "Qwen2Model",
+      "cat": "root",
       "args": {
         "input_shape": "(128, 896)",
         "input_dtype": "torch.float32",
         "output_shape": "(128, 896) | (128, 896)",
         "output_dtype": "torch.float32 | torch.float32",
-        "module_path": "Qwen2Model.norm"
+        "module_path": "RMSNorm"
       }
     }
   ],
