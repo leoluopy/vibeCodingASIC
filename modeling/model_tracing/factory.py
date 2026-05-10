@@ -3,8 +3,7 @@ from .normalization import NormModeler
 from .activation import SiluAndMulModeler
 from .embedding import EmbeddingModeler
 from .rotary import RotaryModeler
-from .attention import CoreAttentionModeler, CompositeAttentionModeler, MLAAttentionModeler
-from .mlp import MLPModeler
+from .attention import CoreAttentionModeler, MLAAttentionModeler
 from .moe import FusedMoEModeler, MoEModeler
 
 
@@ -28,7 +27,7 @@ def is_attention_composite(name):
         'LlamaAttention', 'Qwen2Attention', 'Qwen2SdpaAttention',
         'DeepseekV2MLAAttention', 'DeepseekV4Attention',
     ]
-    return name in attn_names or 'AttentionWrapper' in name
+    return name in attn_names
 
 
 def is_mla_attention(name):
@@ -67,14 +66,10 @@ def get_modeler(name, chip_specs=None):
         return MoEModeler(chip_specs)
     if is_mla_attention(name):
         return MLAAttentionModeler(chip_specs)
-    if is_attention_composite(name):
-        return CompositeAttentionModeler(chip_specs)
+    if is_attention_composite(name) or is_mlp(name) or is_decoder_layer(name):
+        return None
     if is_attention_core(name):
         return CoreAttentionModeler(chip_specs)
-    if is_mlp(name):
-        return MLPModeler(chip_specs)
-    if is_decoder_layer(name):
-        return DecoderLayerModeler(chip_specs)
     if is_linear(name):
         return LinearModeler(chip_specs)
     return None
