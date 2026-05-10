@@ -332,6 +332,35 @@ _moe_runner._moe_forward_shared = _patched_moe_forward_shared
 
 
 # ═══════════════════════════════════════════════
+# MoE Router CUDA 补丁（FakeTensor 模式使用纯 PyTorch top-k）
+# ═══════════════════════════════════════════════
+
+import vllm.model_executor.layers.fused_moe.router.fused_topk_bias_router as _topk_router
+
+
+# vllm_topk_softplus_sqrt internally calls torch.ops._moe_C.topk_softplus_sqrt
+# which is a CUDA-only custom op.  Replace it with pure PyTorch.
+_orig_vllm_topk_softplus_sqrt = _topk_router.vllm_topk_softplus_sqrt
+
+
+def _patched_vllm_topk_softplus_sqrt(
+    topk_weights, topk_indices, token_expert_indices, gating_output,
+    renormalize=False, e_score_correction_bias=None,
+    input_tokens=None, hash_indices_table=None, routed_scaling_factor=1.0,
+):
+    # FakeTensor mode — values don't matter, just fill with dummies
+    topk = topk_weights.shape[1]
+    topk_weights.fill_(1.0 / topk)
+    if routed_scaling_factor != 1.0:
+        topk_weights *= routed_scaling_factor
+    topk_indices.fill_(0)
+    return topk_weights, topk_indices
+
+
+_topk_router.vllm_topk_softplus_sqrt = _patched_vllm_topk_softplus_sqrt
+
+
+# ═══════════════════════════════════════════════
 # CUDA kernel → 无操作（FakeTensor 下只传 shape）
 # ═══════════════════════════════════════════════
 
