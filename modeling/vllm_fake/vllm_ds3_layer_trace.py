@@ -56,3 +56,53 @@ print(f"Hidden states shape:      {hidden_states.shape}")
 print(f"Output hidden_states:     {out[0].shape}")
 print(f"Output residual:          {out[1].shape}")
 print(f"Decoder layer:            {type(layer).__name__}")
+
+# model structure
+# model Structure: DeepseekV2DecoderLayer(
+#   (self_attn): DeepseekV2MLAAttention(
+#     (fused_qkv_a_proj): DeepSeekV2FusedQkvAProjLinear(in_features=7168, output_features=2112, bias=False, tp_size=1, gather_output=False)
+#     (q_a_layernorm): RMSNorm(hidden_size=1536, eps=1e-06)
+#     (q_b_proj): ColumnParallelLinear(in_features=1536, output_features=24576, bias=False, tp_size=1, gather_output=False)
+#     (kv_a_layernorm): RMSNorm(hidden_size=512, eps=1e-06)
+#     (kv_b_proj): ColumnParallelLinear(in_features=512, output_features=32768, bias=False, tp_size=1, gather_output=False)
+#     (o_proj): RowParallelLinear(in_features=16384, output_features=7168, bias=False, tp_size=1, reduce_results=True)
+#     (rotary_emb): RotaryEmbedding(
+#       head_size=64, rotary_dim=64, max_position_embeddings=163840, base=10000, is_neox_style=False
+#       (apply_rotary_emb): ApplyRotaryEmb(is_neox_style=False, enable_fp32_compute=False)
+#     )
+#     (mla_attn): MultiHeadLatentAttentionWrapper(
+#       (fused_qkv_a_proj): DeepSeekV2FusedQkvAProjLinear(in_features=7168, output_features=2112, bias=False, tp_size=1, gather_output=False)
+#       (q_a_layernorm): RMSNorm(hidden_size=1536, eps=1e-06)
+#       (q_b_proj): ColumnParallelLinear(in_features=1536, output_features=24576, bias=False, tp_size=1, gather_output=False)
+#       (kv_a_layernorm): RMSNorm(hidden_size=512, eps=1e-06)
+#       (kv_b_proj): ColumnParallelLinear(in_features=512, output_features=32768, bias=False, tp_size=1, gather_output=False)
+#       (rotary_emb): RotaryEmbedding(
+#         head_size=64, rotary_dim=64, max_position_embeddings=163840, base=10000, is_neox_style=False
+#         (apply_rotary_emb): ApplyRotaryEmb(is_neox_style=False, enable_fp32_compute=False)
+#       )
+#       (o_proj): RowParallelLinear(in_features=16384, output_features=7168, bias=False, tp_size=1, reduce_results=True)
+#       (mla_attn): MLAAttention(
+#         (kv_b_proj): ColumnParallelLinear(in_features=512, output_features=32768, bias=False, tp_size=1, gather_output=False)
+#         (_decode_concat_quant_fp8_op): _DecodeConcatQuantFP8()
+#         (_quant_fp8_op): QuantFP8()
+#       )
+#     )
+#   )
+#   (mlp): DeepseekV2MoE(
+#     (gate): GateLinear(in_features=7168, output_features=256, bias=False)
+#     (shared_experts): DeepseekV2MLP(
+#       (gate_up_proj): MergedColumnParallelLinear(in_features=7168, output_features=4096, bias=False, tp_size=1, gather_output=False)
+#       (down_proj): RowParallelLinear(in_features=2048, output_features=7168, bias=False, tp_size=1, reduce_results=False)
+#       (act_fn): SiluAndMul()
+#     )
+#     (experts): FusedMoE(
+#       global_num_experts=256, local_num_experts=256, top_k=8, intermediate_size_per_partition=2048, tp_size=1,
+#       ep_size=1, 
+#       (quant_method): UnquantizedFusedMoEMethod()
+#       (base_quant_method): UnquantizedFusedMoEMethod()
+#     )
+#   )
+#   (input_layernorm): RMSNorm(hidden_size=7168, eps=1e-06)
+#   (post_attention_layernorm): RMSNorm(hidden_size=7168, eps=1e-06)
+# )
+# Config loaded from:       /media/leo/work/mvp/vibeCodingASIC/modeling/vllm_fake/../deepseek-ai/DeepSeek-V3.2-Exp
