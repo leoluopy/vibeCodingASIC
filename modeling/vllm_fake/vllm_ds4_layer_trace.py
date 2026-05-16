@@ -46,6 +46,19 @@ with set_current_vllm_config(vllm_config):
 
 # ── helpers ──────────────────────────────────────────────────────────
 
+def _convert_params_to_bf16(module):
+    """Convert all parameters/buffers to bfloat16 (matching config
+    torch_dtype), except those explicitly set to float32 (hc fn/scale/base)."""
+    for m in module.modules():
+        for name, p in list(m._parameters.items()):
+            if p is not None and p.dtype == torch.float32 and "hc_" not in name:
+                m._parameters[name] = torch.nn.Parameter(
+                    p.to(torch.bfloat16), requires_grad=p.requires_grad)
+        for name, b in list(m._buffers.items()):
+            if b is not None and b.dtype == torch.float32 and not name.endswith("_numel"):
+                m._buffers[name] = b.to(torch.bfloat16)
+
+
 def _patch_complex_modules(root):
     """Pre-patch known CUDA-kernel modules so their forward succeeds in
     fake mode.  The call still goes through ``nn.Module.__call__`` and
@@ -66,6 +79,10 @@ def _patch_complex_modules(root):
                 return (torch.empty(x.shape, dtype=torch.float8_e4m3fn, device=x.device),
                         torch.empty(x.shape[:-1], dtype=torch.float32, device=x.device))
             mod.forward = types.MethodType(_qfp8, mod)
+        elif cls == "RotaryEmbedding":
+            # forward_native does .view() math that chokes on fake
+            # bf16 tensors; skip and call apply_rotary_emb directly.
+            mod.forward = lambda self, *a, **kw: None
         elif cls == "ApplyRotaryEmb":
             mod.forward = types.MethodType(
                 lambda self, x, cos, sin: torch.empty_like(x), mod)
@@ -85,8 +102,8 @@ def _patch_complex_modules(root):
 def _fake_hc_pre(self_mod, x, hc_fn, hc_scale, hc_base):
     B, H, D = x.shape
     layer_input = x[:, 0, :].reshape(B, D)
-    post_mix = x.new_empty(B, H, dtype=torch.float32)
-    comb = x.new_empty(B, H * H, dtype=torch.float32)
+    post_mix = x.new_empty(B, H, dtype=x.dtype)
+    comb = x.new_empty(B, H * H, dtype=x.dtype)
     return layer_input, post_mix, comb
 
 
@@ -100,8 +117,12 @@ layer.hc_post = lambda x, r, p, c, _l=layer: _fake_hc_post(_l, x, r, p, c)
 
 _patch_complex_modules(layer)
 
+# Convert parameters to bf16 to match config torch_dtype: bfloat16.
+# The hc_* parameters are explicitly float32 in __init__ — skip them.
+_convert_params_to_bf16(layer)
 
-# mla_attn forward — call ALL sub-modules so they appear in trace
+# mla_attn forward — call ALL sub-modules so they appear in trace.
+# Signature matches the original (positions first, then hidden_states).
 def _fake_mla_forward(self, positions, hidden_states, llama_4_scaling=None):
     B = hidden_states.shape[0]
     ref = hidden_states
@@ -207,6 +228,7 @@ _name_children(layer, LAYER_PREFIX)
 hidden_size = config.hidden_size
 hc_mult = config.hc_mult
 batch_size = 6
+dtype = torch.bfloat16
 
 print(f"model Structure: {layer}")
 with FakeTensorMode() as fake_mode, ModelTracer() as tracer:
@@ -214,7 +236,7 @@ with FakeTensorMode() as fake_mode, ModelTracer() as tracer:
     positions = fake_mode.from_tensor(torch.arange(batch_size, device="meta"))
     input_ids = fake_mode.from_tensor(torch.randint(0, 100, (batch_size,), device="meta"))
     hidden_states = fake_mode.from_tensor(
-        torch.randn(batch_size, hc_mult, hidden_size, device="meta")
+        torch.empty(batch_size, hc_mult, hidden_size, device="meta", dtype=dtype)
     )
     out = layer(hidden_states, positions, input_ids)
 
