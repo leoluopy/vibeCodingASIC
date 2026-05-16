@@ -1,0 +1,117 @@
+{
+  "traceEvents": [
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 2474875708.077,
+      "dur": 5505.957,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.float32",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
+      "ph": "X",
+      "ts": 2474881257.605,
+      "dur": 402.304,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.float32",
+        "module_path": "DeepseekV4MultiHeadLatentAttentionWrapper"
+      }
+    },
+    {
+      "name": "DeepseekV4Attention",
+      "ph": "X",
+      "ts": 2474881241.664,
+      "dur": 429.274,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128,)",
+        "input_dtype": "torch.int64",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.float32",
+        "module_path": "DeepseekV4Attention"
+      }
+    },
+    {
+      "name": "RMSNorm",
+      "ph": "X",
+      "ts": 2474883734.596,
+      "dur": 1677.276,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.float32",
+        "module_path": "RMSNorm"
+      }
+    },
+    {
+      "name": "FusedMoE",
+      "ph": "X",
+      "ts": 2474885455.226,
+      "dur": 2003.592,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.float32",
+        "module_path": "FusedMoE"
+      }
+    },
+    {
+      "name": "DeepseekV4MoE",
+      "ph": "X",
+      "ts": 2474885431.19,
+      "dur": 3081.571,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 7168)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 7168)",
+        "output_dtype": "torch.float32",
+        "module_path": "DeepseekV4MoE"
+      }
+    },
+    {
+      "name": "DeepseekV4DecoderLayer",
+      "ph": "X",
+      "ts": 2474872533.418,
+      "dur": 16441.489,
+      "pid": 0,
+      "tid": 0,
+      "cat": "root",
+      "args": {
+        "input_shape": "(128, 4, 7168)",
+        "input_dtype": "torch.float32",
+        "output_shape": "(128, 4, 7168)",
+        "output_dtype": "torch.float32",
+        "module_path": "DeepseekV4DecoderLayer"
+      }
+    }
+  ],
+  "displayTimeUnit": "ms"
+}
