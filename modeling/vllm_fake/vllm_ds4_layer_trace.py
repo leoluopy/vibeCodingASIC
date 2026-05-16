@@ -1,5 +1,6 @@
 import json
 import os
+import types
 
 import torch
 
@@ -10,7 +11,7 @@ from vllm.transformers_utils.configs.deepseek_v4 import DeepseekV4Config
 from vllm.config.vllm import set_current_vllm_config
 from vllm.model_executor.models.deepseek_v4 import DeepseekV4DecoderLayer
 
-from model_tracer import ModelTracer
+from model_tracer import ModelTracer, _name_children
 
 MODEL_DIR = os.path.join(os.path.dirname(__file__), "../deepseek-ai/DeepSeek-V4-Pro")
 
@@ -18,8 +19,6 @@ with open(os.path.join(MODEL_DIR, "config.json")) as f:
     raw_config = json.load(f)
 
 model_type = raw_config.get("model_type", "")
-# Keep index_topk — the indexer reads it during __init__
-# but the fake forward will skip actual indexing
 
 rope = raw_config.get("rope_scaling", {}) or {}
 if "rope_type" not in rope:
@@ -37,13 +36,17 @@ vllm_config.model_config.max_model_len = 4096
 
 patch_deepseek_kernels()
 
+LAYER_PREFIX = "layers.4"
+
 with set_current_vllm_config(vllm_config):
     layer = DeepseekV4DecoderLayer(
         vllm_config=vllm_config,
-        prefix="layers.4",
+        prefix=LAYER_PREFIX,
     )
 
+# ── layer-level patches (skip CUDA kernel ops, call nn.Module sub-layers) ──
 
+# HC pre/post — CUDA kernel mhc_pre/mhc_post
 def _fake_hc_pre(self_mod, x, hc_fn, hc_scale, hc_base):
     B, H, D = x.shape
     layer_input = x[:, 0, :].reshape(B, D)
@@ -59,10 +62,38 @@ def _fake_hc_post(self_mod, x, residual, post, comb):
 layer.hc_pre = lambda x, fn, s, b, _l=layer: _fake_hc_pre(_l, x, fn, s, b)
 layer.hc_post = lambda x, r, p, c, _l=layer: _fake_hc_post(_l, x, r, p, c)
 
-# Patch attention forward to skip CUDA kernel ops
-layer.attn.mla_attn.forward = lambda pos, hs, sc=None: hs.new_empty(
-    hs.shape[0], hs.shape[1], dtype=hs.dtype
-)
+# mla_attn — call sub-modules (fused_wqa_wkv, wo_b) so they appear in trace
+_orig_mla_forward = layer.attn.mla_attn.forward
+
+
+def _fake_mla_forward(self, positions, hidden_states, llama_4_scaling=None):
+    qr_kv, _ = self.fused_wqa_wkv(hidden_states)
+    num_tokens = hidden_states.shape[0]
+    dummy = qr_kv.new_empty(num_tokens, self.n_local_groups * self.o_lora_rank)
+    return self.wo_b(dummy)
+
+
+layer.attn.mla_attn.forward = types.MethodType(_fake_mla_forward, layer.attn.mla_attn)
+
+# MoE — gate is NOT called when is_internal_router=True;
+# shared_experts is skipped by global _patched_moe_forward_shared.
+# Call both explicitly to trace their sub-modules.
+_orig_moe_forward = layer.ffn.forward
+
+
+def _fake_moe_forward(self, hidden_states, input_ids=None):
+    self.gate(hidden_states)
+    if self.shared_experts is not None:
+        self.shared_experts(hidden_states)
+    return _orig_moe_forward(hidden_states, input_ids)
+
+
+layer.ffn.forward = types.MethodType(_fake_moe_forward, layer.ffn)
+
+# ── set up trace name hierarchy ──
+
+layer._trace_name = LAYER_PREFIX
+_name_children(layer, LAYER_PREFIX)
 
 hidden_size = config.hidden_size
 hc_mult = config.hc_mult

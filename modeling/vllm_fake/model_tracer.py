@@ -27,13 +27,15 @@ def _assign_trace_names() -> None:
     """Walk all ``nn.Module`` objects in memory and set ``_trace_name``."""
     _CONTAINER_TYPES = (nn.ModuleList, nn.ModuleDict, nn.ParameterList, nn.ParameterDict)
     seen: set[int] = set()
-    for obj in gc.get_objects(0):
+    for obj in gc.get_objects():
         try:
             if isinstance(obj, nn.Module) and id(obj) not in seen:
                 seen.add(id(obj))
                 if isinstance(obj, _CONTAINER_TYPES):
                     continue
-                _name_children(obj, getattr(obj, "_trace_name", type(obj).__name__))
+                root_name = getattr(obj, "_trace_name", type(obj).__name__)
+                obj._trace_name = root_name
+                _name_children(obj, root_name)
         except Exception:
             pass
 
