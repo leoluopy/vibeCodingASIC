@@ -3,15 +3,15 @@
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 6830017706.648,
-      "dur": 5360.78,
+      "ts": 7596910631.466,
+      "dur": 5489.849,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4",
       "args": {
-        "input_shape": "(128, 7168)",
+        "input_shape": "(6, 7168)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 7168)",
+        "output_shape": "(6, 7168)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.attn_norm"
       }
@@ -19,15 +19,15 @@
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 6830023120.555,
-      "dur": 631.766,
+      "ts": 7596916178.558,
+      "dur": 454.632,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn",
       "args": {
-        "input_shape": "(128, 7168)",
+        "input_shape": "(6, 7168)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 2048)",
+        "output_shape": "(6, 2048)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.attn.mla_attn.fused_wqa_wkv"
       }
@@ -35,15 +35,15 @@
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 6830024447.627,
-      "dur": 5500.245,
+      "ts": 7596917218.991,
+      "dur": 3638.598,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn",
       "args": {
-        "input_shape": "(128, 1536)",
+        "input_shape": "(6, 1536)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 1536)",
+        "output_shape": "(6, 1536)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.attn.mla_attn.q_norm"
       }
@@ -51,15 +51,15 @@
     {
       "name": "ColumnParallelLinear",
       "ph": "X",
-      "ts": 6830029977.169,
-      "dur": 470.065,
+      "ts": 7596920875.111,
+      "dur": 433.673,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn",
       "args": {
-        "input_shape": "(128, 1536)",
+        "input_shape": "(6, 1536)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 65536)",
+        "output_shape": "(6, 65536)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.attn.mla_attn.wq_b"
       }
@@ -67,15 +67,15 @@
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 6830030463.672,
-      "dur": 4837.351,
+      "ts": 7596921324.363,
+      "dur": 3874.33,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn",
       "args": {
-        "input_shape": "(128, 512)",
+        "input_shape": "(6, 512)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 512)",
+        "output_shape": "(6, 512)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.attn.mla_attn.kv_norm"
       }
@@ -83,15 +83,15 @@
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 6830035327.779,
-      "dur": 1171.737,
+      "ts": 7596925215.81,
+      "dur": 1205.588,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn",
       "args": {
-        "input_shape": "(128, 512)",
+        "input_shape": "(6, 512)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 512)",
+        "output_shape": "(6, 512)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.attn.mla_attn.q_head_norm"
       }
@@ -99,15 +99,15 @@
     {
       "name": "ColumnParallelLinear",
       "ph": "X",
-      "ts": 6830036987.441,
-      "dur": 603.812,
+      "ts": 7596926816.992,
+      "dur": 433.092,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn",
       "args": {
-        "input_shape": "(128, 4096)",
+        "input_shape": "(6, 4096)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 16384)",
+        "output_shape": "(6, 16384)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.attn.mla_attn.wo_a"
       }
@@ -115,15 +115,15 @@
     {
       "name": "QuantFP8",
       "ph": "X",
-      "ts": 6830038192.125,
-      "dur": 669.821,
+      "ts": 7596927653.259,
+      "dur": 654.218,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn",
       "args": {
-        "input_shape": "(128, 16, 1024)",
+        "input_shape": "(6, 16, 1024)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 16, 1024) | (128, 16)",
+        "output_shape": "(6, 16, 1024) | (6, 16)",
         "output_dtype": "torch.float8_e4m3fn | torch.float32",
         "module_path": "layers.4.attn.mla_attn._wo_a_act_quant"
       }
@@ -131,15 +131,15 @@
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 6830040164.03,
-      "dur": 18908.73,
+      "ts": 7596929241.554,
+      "dur": 15663.144,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn",
       "args": {
-        "input_shape": "(128,)",
+        "input_shape": "(6,)",
         "input_dtype": "torch.int64",
-        "output_shape": "(128, 128, 512)",
+        "output_shape": "(6, 128, 512)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.attn.mla_attn.rotary_emb"
       }
@@ -147,15 +147,15 @@
     {
       "name": "ApplyRotaryEmb",
       "ph": "X",
-      "ts": 6830059114.586,
-      "dur": 616.524,
+      "ts": 7596944935.469,
+      "dur": 621.086,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn.rotary_emb",
       "args": {
-        "input_shape": "(128, 128, 512)",
+        "input_shape": "(6, 128, 512)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 128, 512)",
+        "output_shape": "(6, 128, 512)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.attn.mla_attn.rotary_emb.apply_rotary_emb"
       }
@@ -163,15 +163,15 @@
     {
       "name": "RotaryEmbedding",
       "ph": "X",
-      "ts": 6830059748.629,
-      "dur": 4561.86,
+      "ts": 7596945573.427,
+      "dur": 3354.56,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn",
       "args": {
-        "input_shape": "(128,)",
+        "input_shape": "(6,)",
         "input_dtype": "torch.int64",
-        "output_shape": "(128, 128, 512)",
+        "output_shape": "(6, 128, 512)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.attn.mla_attn.rotary_emb"
       }
@@ -179,8 +179,8 @@
     {
       "name": "DeepseekV4SWACache",
       "ph": "X",
-      "ts": 6830064353.297,
-      "dur": 12.291,
+      "ts": 7596948952.835,
+      "dur": 8.378,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn.mla_attn",
@@ -195,15 +195,15 @@
     {
       "name": "ReplicatedLinear",
       "ph": "X",
-      "ts": 6830064382.099,
-      "dur": 801.128,
+      "ts": 7596948973.399,
+      "dur": 484.623,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn.mla_attn.indexer",
       "args": {
-        "input_shape": "(128, 1536)",
+        "input_shape": "(6, 1536)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 8192)",
+        "output_shape": "(6, 8192)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.attn.mla_attn.mla_attn.indexer.wq_b"
       }
@@ -211,15 +211,15 @@
     {
       "name": "ReplicatedLinear",
       "ph": "X",
-      "ts": 6830065208.048,
-      "dur": 617.699,
+      "ts": 7596949476.111,
+      "dur": 420.71,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn.mla_attn.indexer",
       "args": {
-        "input_shape": "(128, 7168)",
+        "input_shape": "(6, 7168)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 64)",
+        "output_shape": "(6, 64)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.attn.mla_attn.mla_attn.indexer.weights_proj"
       }
@@ -227,15 +227,15 @@
     {
       "name": "LayerNorm",
       "ph": "X",
-      "ts": 6830066438.88,
-      "dur": 5335.534,
+      "ts": 7596950299.805,
+      "dur": 5040.033,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn.mla_attn.indexer",
       "args": {
-        "input_shape": "(128, 128)",
+        "input_shape": "(6, 128)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 128)",
+        "output_shape": "(6, 128)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.attn.mla_attn.mla_attn.indexer.k_norm"
       }
@@ -243,8 +243,8 @@
     {
       "name": "DeepseekV4IndexerCache",
       "ph": "X",
-      "ts": 6830071823.152,
-      "dur": 9.78,
+      "ts": 7596955372.433,
+      "dur": 8.17,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn.mla_attn.indexer.indexer_op",
@@ -259,15 +259,15 @@
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 6830071844.234,
-      "dur": 214.846,
+      "ts": 7596955390.789,
+      "dur": 185.344,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn.mla_attn.indexer.compressor",
       "args": {
-        "input_shape": "(128, 7168)",
+        "input_shape": "(6, 7168)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 512)",
+        "output_shape": "(6, 512)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.attn.mla_attn.mla_attn.indexer.compressor.fused_wkv_wgate"
       }
@@ -275,15 +275,15 @@
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 6830072208.405,
-      "dur": 4244.445,
+      "ts": 7596955723.958,
+      "dur": 3400.141,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn.mla_attn.indexer.compressor",
       "args": {
-        "input_shape": "(128, 128)",
+        "input_shape": "(6, 128)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 128)",
+        "output_shape": "(6, 128)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.attn.mla_attn.mla_attn.indexer.compressor.norm"
       }
@@ -291,8 +291,8 @@
     {
       "name": "CompressorStateCache",
       "ph": "X",
-      "ts": 6830076476.645,
-      "dur": 9.109,
+      "ts": 7596959143.078,
+      "dur": 7.264,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn.mla_attn.indexer.compressor",
@@ -307,13 +307,13 @@
     {
       "name": "DeepseekCompressor",
       "ph": "X",
-      "ts": 6830076497.981,
-      "dur": 8.428,
+      "ts": 7596959161.965,
+      "dur": 7.852,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn.mla_attn.indexer",
       "args": {
-        "input_shape": "(128, 7168)",
+        "input_shape": "(6, 7168)",
         "input_dtype": "torch.float32",
         "output_shape": "N/A",
         "output_dtype": "N/A",
@@ -323,8 +323,8 @@
     {
       "name": "DeepseekV4IndexerCache",
       "ph": "X",
-      "ts": 6830076518.855,
-      "dur": 4.908,
+      "ts": 7596959180.359,
+      "dur": 3.956,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn.mla_attn.indexer.indexer_op",
@@ -339,13 +339,13 @@
     {
       "name": "SparseAttnIndexer",
       "ph": "X",
-      "ts": 6830076528.693,
-      "dur": 6.543,
+      "ts": 7596959189.118,
+      "dur": 6.508,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn.mla_attn.indexer",
       "args": {
-        "input_shape": "(128, 7168)",
+        "input_shape": "(6, 7168)",
         "input_dtype": "torch.float32",
         "output_shape": "N/A",
         "output_dtype": "N/A",
@@ -355,15 +355,15 @@
     {
       "name": "DeepseekV4Indexer",
       "ph": "X",
-      "ts": 6830076540.184,
-      "dur": 407.933,
+      "ts": 7596959200.449,
+      "dur": 389.562,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn.mla_attn",
       "args": {
-        "input_shape": "(128, 7168)",
+        "input_shape": "(6, 7168)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 64, 128)",
+        "output_shape": "(6, 64, 128)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.attn.mla_attn.mla_attn.indexer"
       }
@@ -371,15 +371,15 @@
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 6830076968.315,
-      "dur": 197.348,
+      "ts": 7596959609.709,
+      "dur": 181.382,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn.compressor",
       "args": {
-        "input_shape": "(128, 7168)",
+        "input_shape": "(6, 7168)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 2048)",
+        "output_shape": "(6, 2048)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.attn.mla_attn.compressor.fused_wkv_wgate"
       }
@@ -387,15 +387,15 @@
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 6830077314.949,
-      "dur": 2615.804,
+      "ts": 7596959940.502,
+      "dur": 2517.976,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn.compressor",
       "args": {
-        "input_shape": "(128, 512)",
+        "input_shape": "(6, 512)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 512)",
+        "output_shape": "(6, 512)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.attn.mla_attn.compressor.norm"
       }
@@ -403,8 +403,8 @@
     {
       "name": "CompressorStateCache",
       "ph": "X",
-      "ts": 6830079957.558,
-      "dur": 8.688,
+      "ts": 7596962475.497,
+      "dur": 6.605,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn.compressor",
@@ -419,13 +419,13 @@
     {
       "name": "DeepseekCompressor",
       "ph": "X",
-      "ts": 6830079975.291,
-      "dur": 7.471,
+      "ts": 7596962489.213,
+      "dur": 7.359,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn",
       "args": {
-        "input_shape": "(128, 7168)",
+        "input_shape": "(6, 7168)",
         "input_dtype": "torch.float32",
         "output_shape": "N/A",
         "output_dtype": "N/A",
@@ -435,13 +435,13 @@
     {
       "name": "DeepseekV4MLAAttention",
       "ph": "X",
-      "ts": 6830080144.437,
-      "dur": 12.014,
+      "ts": 7596962640.179,
+      "dur": 10.679,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn",
       "args": {
-        "input_shape": "(128, 1536)",
+        "input_shape": "(6, 1536)",
         "input_dtype": "torch.float32",
         "output_shape": "N/A",
         "output_dtype": "N/A",
@@ -451,15 +451,15 @@
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 6830080576.79,
-      "dur": 530.938,
+      "ts": 7596963165.421,
+      "dur": 617.779,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn.mla_attn",
       "args": {
-        "input_shape": "(128, 16384)",
+        "input_shape": "(6, 16384)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 7168)",
+        "output_shape": "(6, 7168)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.attn.mla_attn.wo_b"
       }
@@ -467,15 +467,15 @@
     {
       "name": "DeepseekV4MultiHeadLatentAttentionWrapper",
       "ph": "X",
-      "ts": 6830023108.449,
-      "dur": 58027.464,
+      "ts": 7596916165.792,
+      "dur": 47645.537,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.attn",
       "args": {
-        "input_shape": "(128,)",
+        "input_shape": "(6,)",
         "input_dtype": "torch.int64",
-        "output_shape": "(128, 7168)",
+        "output_shape": "(6, 7168)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.attn.mla_attn"
       }
@@ -483,15 +483,15 @@
     {
       "name": "DeepseekV4Attention",
       "ph": "X",
-      "ts": 6830023094.647,
-      "dur": 58049.945,
+      "ts": 7596916151.026,
+      "dur": 47671.561,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4",
       "args": {
-        "input_shape": "(128,)",
+        "input_shape": "(6,)",
         "input_dtype": "torch.int64",
-        "output_shape": "(128, 7168)",
+        "output_shape": "(6, 7168)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.attn"
       }
@@ -499,15 +499,15 @@
     {
       "name": "RMSNorm",
       "ph": "X",
-      "ts": 6830083244.313,
-      "dur": 1599.385,
+      "ts": 7596965900.542,
+      "dur": 1613.028,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4",
       "args": {
-        "input_shape": "(128, 7168)",
+        "input_shape": "(6, 7168)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 7168)",
+        "output_shape": "(6, 7168)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.ffn_norm"
       }
@@ -515,15 +515,15 @@
     {
       "name": "GateLinear",
       "ph": "X",
-      "ts": 6830084881.234,
-      "dur": 451.031,
+      "ts": 7596967544.183,
+      "dur": 423.808,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.ffn",
       "args": {
-        "input_shape": "(128, 7168)",
+        "input_shape": "(6, 7168)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 384)",
+        "output_shape": "(6, 384)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.ffn.gate"
       }
@@ -531,15 +531,15 @@
     {
       "name": "MergedColumnParallelLinear",
       "ph": "X",
-      "ts": 6830085363.104,
-      "dur": 422.364,
+      "ts": 7596967998.314,
+      "dur": 427.443,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.ffn.shared_experts",
       "args": {
-        "input_shape": "(128, 7168)",
+        "input_shape": "(6, 7168)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 6144)",
+        "output_shape": "(6, 6144)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.ffn.shared_experts.gate_up_proj"
       }
@@ -547,15 +547,15 @@
     {
       "name": "SiluAndMulWithClamp",
       "ph": "X",
-      "ts": 6830085802.338,
-      "dur": 5414.567,
+      "ts": 7596968442.256,
+      "dur": 5804.615,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.ffn.shared_experts",
       "args": {
-        "input_shape": "(128, 6144)",
+        "input_shape": "(6, 6144)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 3072)",
+        "output_shape": "(6, 3072)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.ffn.shared_experts.act_fn"
       }
@@ -563,15 +563,15 @@
     {
       "name": "RowParallelLinear",
       "ph": "X",
-      "ts": 6830091236.091,
-      "dur": 616.912,
+      "ts": 7596974273.051,
+      "dur": 450.92,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.ffn.shared_experts",
       "args": {
-        "input_shape": "(128, 3072)",
+        "input_shape": "(6, 3072)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 7168)",
+        "output_shape": "(6, 7168)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.ffn.shared_experts.down_proj"
       }
@@ -579,15 +579,15 @@
     {
       "name": "DeepseekV4MLP",
       "ph": "X",
-      "ts": 6830085351.739,
-      "dur": 6529.337,
+      "ts": 7596967987.095,
+      "dur": 6755.796,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.ffn",
       "args": {
-        "input_shape": "(128, 7168)",
+        "input_shape": "(6, 7168)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 7168)",
+        "output_shape": "(6, 7168)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.ffn.shared_experts"
       }
@@ -595,15 +595,15 @@
     {
       "name": "FusedMoE",
       "ph": "X",
-      "ts": 6830091916.524,
-      "dur": 2213.289,
+      "ts": 7596974766.707,
+      "dur": 1612.998,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4.ffn",
       "args": {
-        "input_shape": "(128, 7168)",
+        "input_shape": "(6, 7168)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 7168)",
+        "output_shape": "(6, 7168)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.ffn.experts"
       }
@@ -611,15 +611,15 @@
     {
       "name": "DeepseekV4MoE",
       "ph": "X",
-      "ts": 6830084867.986,
-      "dur": 10410.988,
+      "ts": 7596967531.652,
+      "dur": 9923.848,
       "pid": 0,
       "tid": 0,
       "cat": "layers.4",
       "args": {
-        "input_shape": "(128, 7168)",
+        "input_shape": "(6, 7168)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 7168)",
+        "output_shape": "(6, 7168)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4.ffn"
       }
@@ -627,15 +627,15 @@
     {
       "name": "DeepseekV4DecoderLayer",
       "ph": "X",
-      "ts": 6830014427.648,
-      "dur": 81307.705,
+      "ts": 7596907361.865,
+      "dur": 70575.784,
       "pid": 0,
       "tid": 0,
       "cat": "layers",
       "args": {
-        "input_shape": "(128, 4, 7168)",
+        "input_shape": "(6, 4, 7168)",
         "input_dtype": "torch.float32",
-        "output_shape": "(128, 4, 7168)",
+        "output_shape": "(6, 4, 7168)",
         "output_dtype": "torch.float32",
         "module_path": "layers.4"
       }

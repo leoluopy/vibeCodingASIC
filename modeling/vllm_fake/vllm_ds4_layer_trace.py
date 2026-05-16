@@ -206,7 +206,7 @@ _name_children(layer, LAYER_PREFIX)
 
 hidden_size = config.hidden_size
 hc_mult = config.hc_mult
-batch_size = 128
+batch_size = 6
 
 print(f"model Structure: {layer}")
 with FakeTensorMode() as fake_mode, ModelTracer() as tracer:
@@ -229,3 +229,104 @@ print(f"Positions shape:          {positions.shape}")
 print(f"Hidden states shape:      {hidden_states.shape}")
 print(f"Output shape:             {out.shape}")
 print(f"Decoder layer:            {type(layer).__name__}")
+
+# model Structure: DeepseekV4DecoderLayer(
+#   (attn): DeepseekV4Attention(
+#     (fused_wqa_wkv): MergedColumnParallelLinear(in_features=7168, output_features=2048, bias=False, tp_size=1, gather_output=False)
+#     (q_norm): RMSNorm(hidden_size=1536, eps=1e-06)
+#     (wq_b): ColumnParallelLinear(in_features=1536, output_features=65536, bias=False, tp_size=1, gather_output=False)
+#     (kv_norm): RMSNorm(hidden_size=512, eps=1e-06)
+#     (wo_a): ColumnParallelLinear(in_features=4096, output_features=16384, bias=False, tp_size=1, gather_output=False)
+#     (wo_b): RowParallelLinear(in_features=16384, output_features=7168, bias=False, tp_size=1, reduce_results=True)
+#     (rotary_emb): RotaryEmbedding(
+#       head_size=512, rotary_dim=64, max_position_embeddings=1048576, base=160000, is_neox_style=False
+#       (apply_rotary_emb): ApplyRotaryEmb(is_neox_style=False, enable_fp32_compute=False)
+#     )
+#     (indexer): DeepseekV4Indexer(
+#       (wq_b): ReplicatedLinear(in_features=1536, output_features=8192, bias=False)
+#       (weights_proj): ReplicatedLinear(in_features=7168, output_features=64, bias=False)
+#       (k_norm): LayerNorm()
+#       (k_cache): DeepseekV4IndexerCache()
+#       (compressor): DeepseekCompressor(
+#         (fused_wkv_wgate): MergedColumnParallelLinear(in_features=7168, output_features=512, bias=False, tp_size=1, gather_output=False)
+#         (norm): RMSNorm(hidden_size=128, eps=1e-06)
+#         (state_cache): CompressorStateCache()
+#       )
+#       (indexer_op): SparseAttnIndexer(
+#         (k_cache): DeepseekV4IndexerCache()
+#       )
+#     )
+#     (mla_attn): DeepseekV4MultiHeadLatentAttentionWrapper(
+#       (fused_wqa_wkv): MergedColumnParallelLinear(in_features=7168, output_features=2048, bias=False, tp_size=1, gather_output=False)
+#       (q_norm): RMSNorm(hidden_size=1536, eps=1e-06)
+#       (wq_b): ColumnParallelLinear(in_features=1536, output_features=65536, bias=False, tp_size=1, gather_output=False)
+#       (kv_norm): RMSNorm(hidden_size=512, eps=1e-06)
+#       (wo_a): ColumnParallelLinear(in_features=4096, output_features=16384, bias=False, tp_size=1, gather_output=False)
+#       (_wo_a_act_quant): QuantFP8()
+#       (wo_b): RowParallelLinear(in_features=16384, output_features=7168, bias=False, tp_size=1, reduce_results=True)
+#       (rotary_emb): RotaryEmbedding(
+#         head_size=512, rotary_dim=64, max_position_embeddings=1048576, base=160000, is_neox_style=False
+#         (apply_rotary_emb): ApplyRotaryEmb(is_neox_style=False, enable_fp32_compute=False)
+#       )
+#       (indexer_rotary_emb): RotaryEmbedding(
+#         head_size=512, rotary_dim=64, max_position_embeddings=1048576, base=160000, is_neox_style=False
+#         (apply_rotary_emb): ApplyRotaryEmb(is_neox_style=False, enable_fp32_compute=False)
+#       )
+#       (indexer): DeepseekV4Indexer(
+#         (wq_b): ReplicatedLinear(in_features=1536, output_features=8192, bias=False)
+#         (weights_proj): ReplicatedLinear(in_features=7168, output_features=64, bias=False)
+#         (k_norm): LayerNorm()
+#         (k_cache): DeepseekV4IndexerCache()
+#         (compressor): DeepseekCompressor(
+#           (fused_wkv_wgate): MergedColumnParallelLinear(in_features=7168, output_features=512, bias=False, tp_size=1, gather_output=False)
+#           (norm): RMSNorm(hidden_size=128, eps=1e-06)
+#           (state_cache): CompressorStateCache()
+#         )
+#         (indexer_op): SparseAttnIndexer(
+#           (k_cache): DeepseekV4IndexerCache()
+#         )
+#       )
+#       (q_head_norm): RMSNorm(hidden_size=512, eps=1e-06)
+#       (swa_cache_layer): DeepseekV4SWACache()
+#       (mla_attn): DeepseekV4MLAAttention(
+#         (indexer): DeepseekV4Indexer(
+#           (wq_b): ReplicatedLinear(in_features=1536, output_features=8192, bias=False)
+#           (weights_proj): ReplicatedLinear(in_features=7168, output_features=64, bias=False)
+#           (k_norm): LayerNorm()
+#           (k_cache): DeepseekV4IndexerCache()
+#           (compressor): DeepseekCompressor(
+#             (fused_wkv_wgate): MergedColumnParallelLinear(in_features=7168, output_features=512, bias=False, tp_size=1, gather_output=False)
+#             (norm): RMSNorm(hidden_size=128, eps=1e-06)
+#             (state_cache): CompressorStateCache()
+#           )
+#           (indexer_op): SparseAttnIndexer(
+#             (k_cache): DeepseekV4IndexerCache()
+#           )
+#         )
+#         (swa_cache_layer): DeepseekV4SWACache()
+#       )
+#       (compressor): DeepseekCompressor(
+#         (fused_wkv_wgate): MergedColumnParallelLinear(in_features=7168, output_features=2048, bias=False, tp_size=1, gather_output=False)
+#         (norm): RMSNorm(hidden_size=512, eps=1e-06)
+#         (state_cache): CompressorStateCache()
+#       )
+#     )
+#   )
+#   (ffn): DeepseekV4MoE(
+#     (gate): GateLinear(in_features=7168, output_features=384, bias=False)
+#     (shared_experts): DeepseekV4MLP(
+#       (gate_up_proj): MergedColumnParallelLinear(in_features=7168, output_features=6144, bias=False, tp_size=1, gather_output=False)
+#       (down_proj): RowParallelLinear(in_features=3072, output_features=7168, bias=False, tp_size=1, reduce_results=False)
+#       (act_fn): SiluAndMulWithClamp()
+#     )
+#     (experts): FusedMoE(
+#       global_num_experts=384, local_num_experts=384, top_k=6, intermediate_size_per_partition=3072, tp_size=1,
+#       ep_size=1, 
+#       (quant_method): UnquantizedFusedMoEMethod()
+#       (base_quant_method): UnquantizedFusedMoEMethod()
+#     )
+#   )
+#   (attn_norm): RMSNorm(hidden_size=7168, eps=1e-06)
+#   (ffn_norm): RMSNorm(hidden_size=7168, eps=1e-06)
+# )
+# Config loaded from:       /media/leo/work/mvp/vibeCodingASIC/modeling/vllm_fake/../deepseek-ai/DeepSeek-V4-Pro
