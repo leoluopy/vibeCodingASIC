@@ -3,6 +3,7 @@ import os
 import types
 
 import torch
+import torch.nn as nn
 
 import fake_imple_patch
 from fake_imple_patch import FakeTensorMode, to_fake_model, make_vllm_config, patch_deepseek_kernels
@@ -73,46 +74,64 @@ def _patch_complex_modules(root):
         elif cls == "CompressorStateCache":
             mod.forward = lambda: None
         elif cls == "SparseAttnIndexer":
-            mod.forward = lambda *a, **kw: None
+            def _sparse_idx(self, hs, q_quant, k, weights):
+                topk = getattr(self, "topk", 1024)
+                return hs.new_empty(hs.shape[0], topk, dtype=torch.int32)
+            mod.forward = types.MethodType(_sparse_idx, mod)
         elif cls == "QuantFP8":
             def _qfp8(self, x, *a, **kw):
                 return (torch.empty(x.shape, dtype=torch.float8_e4m3fn, device=x.device),
                         torch.empty(x.shape[:-1], dtype=torch.float32, device=x.device))
             mod.forward = types.MethodType(_qfp8, mod)
         elif cls == "RotaryEmbedding":
-            # forward_native does .view() math that chokes on fake
-            # bf16 tensors; skip and call apply_rotary_emb directly.
-            mod.forward = lambda self, *a, **kw: None
+            # Swap arg order: forward(query, positions, key=None)
+            # so tracer captures query tensor as input (not positions).
+            def _rotary(self, query, positions, key=None):
+                return query, key
+            mod.forward = types.MethodType(_rotary, mod)
         elif cls == "ApplyRotaryEmb":
             mod.forward = types.MethodType(
                 lambda self, x, cos, sin: torch.empty_like(x), mod)
         elif cls == "DeepseekV4Indexer":
             def _idx(self, hs, qr, pos, rot):
-                return hs.new_empty(hs.shape[0], self.n_head, self.head_dim)
+                itopk = getattr(self, "index_topk", 1024)
+                return hs.new_empty(hs.shape[0], itopk, dtype=torch.int32)
             mod.forward = types.MethodType(_idx, mod)
         elif cls == "DeepseekCompressor":
             mod.forward = types.MethodType(lambda self, x, pos, rot: None, mod)
         elif cls == "DeepseekV4MLAAttention":
-            mod.forward = types.MethodType(lambda self, q, kv, pos, out: None, mod)
+            mod.forward = types.MethodType(lambda self, q, kv, pos, out: out, mod)
 
 
 # ── layer-level patches (skip CUDA ops, call nn.Module sub-layers) ──
 
-# HC pre/post — CUDA kernel mhc_pre/mhc_post
-def _fake_hc_pre(self_mod, x, hc_fn, hc_scale, hc_base):
-    B, H, D = x.shape
-    layer_input = x[:, 0, :].reshape(B, D)
-    post_mix = x.new_empty(B, H, dtype=x.dtype)
-    comb = x.new_empty(B, H * H, dtype=x.dtype)
-    return layer_input, post_mix, comb
+# Wrap HC pre/post as nn.Module so the tracer captures their multi-tensor I/O.
+# Real signature: hc_pre(x: [B,H,D], fn, scale, base) → (layer_input:[B,D], post_mix:[B,H], comb:[B,H*H])
+
+class _TracedHCPre(nn.Module):
+    def forward(self, x, hc_fn, hc_scale, hc_base):
+        B, H, D = x.shape
+        layer_input = x[:, 0, :].reshape(B, D)
+        post_mix = x.new_empty(B, H, dtype=x.dtype)
+        comb = x.new_empty(B, H * H, dtype=x.dtype)
+        return layer_input, post_mix, comb
 
 
-def _fake_hc_post(self_mod, x, residual, post, comb):
-    return x.unsqueeze(1).expand(-1, self_mod.hc_mult, -1).contiguous()
+class _TracedHCPost(nn.Module):
+    def __init__(self, hc_mult: int):
+        super().__init__()
+        self.hc_mult = hc_mult
+
+    def forward(self, x, residual, post, comb):
+        return x.unsqueeze(1).expand(-1, self.hc_mult, -1).contiguous()
 
 
-layer.hc_pre = lambda x, fn, s, b, _l=layer: _fake_hc_pre(_l, x, fn, s, b)
-layer.hc_post = lambda x, r, p, c, _l=layer: _fake_hc_post(_l, x, r, p, c)
+# nn.Module.__setattr__ registers in _modules but NOT __dict__,
+# so class method would shadow it.  Force __dict__ entry.
+layer.hc_pre = _TracedHCPre()
+layer.__dict__['hc_pre'] = layer._modules['hc_pre']
+layer.hc_post = _TracedHCPost(layer.hc_mult)
+layer.__dict__['hc_post'] = layer._modules['hc_post']
 
 
 _patch_complex_modules(layer)
@@ -121,8 +140,11 @@ _patch_complex_modules(layer)
 # The hc_* parameters are explicitly float32 in __init__ — skip them.
 _convert_params_to_bf16(layer)
 
-# mla_attn forward — call ALL sub-modules so they appear in trace.
-# Signature matches the original (positions first, then hidden_states).
+# ── attention forward ─────────────────────────────────────────────────
+# We swap arg order: forward(hidden_states, positions) instead of
+# forward(positions, hidden_states) so the tracer captures the correct
+# hidden_states shape for DeepseekV4Attention / Wrapper traces.
+
 def _fake_mla_forward(self, positions, hidden_states, llama_4_scaling=None):
     B = hidden_states.shape[0]
     ref = hidden_states
@@ -143,15 +165,16 @@ def _fake_mla_forward(self, positions, hidden_states, llama_4_scaling=None):
         self._wo_a_act_quant(ref.new_empty(B, self.n_local_groups, self.o_lora_rank))
 
     # rotary_emb + its apply_rotary_emb sub-module
+    # NOTE: call with (query, positions) so tracer captures query shape
     rq = ref.new_empty(B, self.n_local_heads, self.head_dim)
     rc = ref.new_empty(B, self.head_dim)
     rs = ref.new_empty(B, self.head_dim)
-    self.rotary_emb(positions, rq)
+    self.rotary_emb(rq, positions)
     self.rotary_emb.apply_rotary_emb(rq, rc, rs)
 
     # indexer_rotary_emb (same object as rotary_emb for V4-Pro)
     if hasattr(self, "indexer_rotary_emb"):
-        self.indexer_rotary_emb(positions, rq)
+        self.indexer_rotary_emb(rq, positions)
 
     # swa_cache_layer
     if hasattr(self, "swa_cache_layer"):
@@ -179,7 +202,9 @@ def _fake_mla_forward(self, positions, hidden_states, llama_4_scaling=None):
         if hasattr(idx, "indexer_op"):
             if hasattr(idx.indexer_op, "k_cache"):
                 idx.indexer_op.k_cache()
-            idx.indexer_op(hidden_states, None, None, None)
+            q_quant = ref.new_empty(B, idx.n_head, idx.head_dim)
+            weights = ref.new_empty(B, idx.n_head)
+            idx.indexer_op(hidden_states, q_quant, None, weights)
 
         idx(hidden_states, qr, positions, self.rotary_emb)
 
@@ -203,8 +228,69 @@ def _fake_mla_forward(self, positions, hidden_states, llama_4_scaling=None):
     return self.wo_b(dummy)
 
 
-layer.attn.mla_attn.forward = types.MethodType(_fake_mla_forward, layer.attn.mla_attn)
+# ── arg-swapping wrappers so tracer captures hidden_states shape ────
+# DeepseekV4Attention forward signature: (positions, hidden_states)
+# We want attn(hidden_states, positions) → tracer sees (B, D) not (B,)
 
+# First set _fake_mla_forward as mla_attn.forward (replaces original)
+layer.attn.mla_attn.forward = types.MethodType(
+    _fake_mla_forward, layer.attn.mla_attn)
+
+# 1) Wrap mla_attn.forward: _fake_mla_forward takes (positions, hidden_states)
+#    We make mla_attn(hidden_states, positions) → _fake_mla_forward(positions, hidden_states)
+_fake_mla_bound = layer.attn.mla_attn.forward  # MethodType bound func
+
+def _mla_swapped(self, hidden_states, positions):
+    return _fake_mla_bound(positions, hidden_states)
+
+layer.attn.mla_attn.forward = types.MethodType(_mla_swapped, layer.attn.mla_attn)
+
+# 2) Wrap DeepseekV4Attention.forward: let it accept (hidden_states, positions)
+#    and delegate to mla_attn with same order (propagating correct arg order)
+def _attn_swapped(self, hidden_states, positions):
+    return self.mla_attn(hidden_states, positions)
+
+layer.attn.forward = types.MethodType(_attn_swapped, layer.attn)
+
+# 3) Custom decoder-layer forward: calls attn(hidden_states, positions)
+_orig_layer_forward = layer.forward
+
+
+def _custom_layer_forward(self, hidden_states, positions, input_ids=None):
+    B, H, D = hidden_states.shape
+
+    # hc_pre — the actual fn/scale/base values are ignored by _fake_hc_pre
+    hs, post_mix, comb = self.hc_pre(
+        hidden_states, self.hc_attn_fn, self.hc_attn_scale, self.hc_attn_base,
+    )
+
+    # attn_norm
+    hs = self.attn_norm(hs)
+
+    # attention with hidden_states FIRST so tracer captures (B, D)
+    hs = self.attn(hs, positions)
+
+    # hc_post
+    hs = self.hc_post(hs, None, post_mix, comb)
+
+    # 1st residual — hc_post already expanded to (B, H, D)
+    hidden_states = hidden_states + hs
+
+    # ffn_norm
+    hs = self.ffn_norm(hidden_states)
+    hs_flat = hs[:, 0, :].contiguous() if H > 1 else hs
+
+    # ffn (MoE)
+    hs_flat = self.ffn(hs_flat, input_ids)
+    hs = hs_flat.unsqueeze(1).expand(-1, H, -1).contiguous() if H > 1 else hs_flat
+
+    # 2nd residual
+    hidden_states = hidden_states + hs
+
+    return hidden_states
+
+
+layer.forward = types.MethodType(_custom_layer_forward, layer)
 
 # MoE — gate NOT called when is_internal_router=True;
 # shared_experts skipped by global _patched_moe_forward_shared.
