@@ -376,6 +376,39 @@ torch.cuda.Event = _FakeCUDASteamEvent
 torch.cuda.is_available = lambda: True
 
 # ═══════════════════════════════════════════════
+# Module.to 补丁（支持 meta tensor 到 device 的转换，FakeTensor 模式下用）
+# ═══════════════════════════════════════════════
+
+_orig_module_to = nn.Module.to
+
+
+def _patched_module_to(self, *args, **kwargs):
+    try:
+        return _orig_module_to(self, *args, **kwargs)
+    except NotImplementedError as e:
+        if "Cannot copy out of meta tensor" not in str(e):
+            raise
+        device = kwargs.get("device")
+        if device is None:
+            for a in args:
+                if isinstance(a, (torch.device, str, int)):
+                    device = a
+                    break
+        dtype = kwargs.get("dtype")
+        if dtype is None:
+            for a in args:
+                if isinstance(a, torch.dtype):
+                    dtype = a
+                    break
+        self.to_empty(device=device, recurse=True)
+        if dtype is not None:
+            self.to(dtype=dtype)
+        return self
+
+
+nn.Module.to = _patched_module_to
+
+# ═══════════════════════════════════════════════
 # VllmConfig 上下文
 # ═══════════════════════════════════════════════
 
@@ -424,20 +457,71 @@ def to_fake_model(model, fake_mode=None):
 # ═══════════════════════════════════════════════
 
 
+# patch with_hf_config for fake model_config (SimpleNamespace)
+from vllm.config.vllm import VllmConfig as _VllmConfig
+
+_orig_with_hf_config = _VllmConfig.with_hf_config
+
+
+def _patched_with_hf_config(self, hf_config, architectures=None):
+    model_config = self.model_config
+    if not hasattr(model_config, "get_model_arch_config"):
+        model_config.hf_config = hf_config
+        return self
+    return _orig_with_hf_config(self, hf_config, architectures)
+
+
+_VllmConfig.with_hf_config = _patched_with_hf_config
+
+
+# patch init_vllm_registered_model for fake model_config
+import vllm.model_executor.models.utils as _model_utils
+_orig_init_vllm = _model_utils.init_vllm_registered_model
+
+
+def _patched_init_vllm_registered_model(
+    vllm_config, *, prefix="", hf_config=None, architectures=None
+):
+    from vllm.model_executor.model_loader.utils import initialize_model
+    model_config = vllm_config.model_config
+    if not hasattr(model_config, "registry"):
+        # fake model_config: directly resolve model class from architecture
+        from vllm.model_executor.models.registry import _VLLM_MODELS
+        arch_name = (architectures or [""])[0]
+        module_path, cls_name = _VLLM_MODELS[arch_name]
+        import importlib
+        module = importlib.import_module(f"vllm.model_executor.models.{module_path}")
+        model_cls = getattr(module, cls_name)
+        model_config.hf_config = hf_config
+        from vllm.transformers_utils.config import patch_rope_parameters
+        patch_rope_parameters(hf_config)
+        with set_current_vllm_config(vllm_config):
+            model = model_cls(vllm_config=vllm_config, prefix=prefix)
+        return model
+    return _orig_init_vllm(vllm_config, prefix=prefix, hf_config=hf_config,
+                           architectures=architectures)
+
+
+_model_utils.init_vllm_registered_model = _patched_init_vllm_registered_model
+
+
 def make_vllm_config(llama_config: "LlamaConfig", cache_dtype: str = "auto") -> "VllmConfig":
     """Create a VllmConfig with a custom LlamaConfig, bypassing HF download."""
     from types import SimpleNamespace
     import torch
     from vllm.config import CompilationConfig, CacheConfig, ParallelConfig, DeviceConfig
     from vllm.config.vllm import VllmConfig
+    from vllm.config.multimodal import MultiModalConfig
 
     model_config = SimpleNamespace(
         hf_config=llama_config,
         dtype=torch.float32,
         is_mm_prefix_lm=False,
         use_mla=False,
+        model=llama_config.model_type if hasattr(llama_config, 'model_type') else "",
     )
     model_config.compute_hash = lambda: "fake_hash"
+    model_config.multimodal_config = MultiModalConfig()
     cache_config = CacheConfig(block_size=16, cache_dtype=cache_dtype)
     compilation_config = CompilationConfig()
     compilation_config.mode = 0  # disable compilation

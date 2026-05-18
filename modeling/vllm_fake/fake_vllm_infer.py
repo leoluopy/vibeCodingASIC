@@ -23,6 +23,8 @@ _MODEL_MODULE_OVERRIDE = {
 _MODEL_CLASS_OVERRIDE = {
     "deepseek_v4": "DeepseekV4ForCausalLM",
     "deepseek_v32": "DeepseekV2Model",
+    "minimax_m2": "MiniMaxM2ForCausalLM",
+    "kimi_k25": "KimiK25ForConditionalGeneration",
 }
 
 _CONFIG_FIELD_PATCHES = {
@@ -39,6 +41,7 @@ _CONFIG_FIELD_REMOVE = {
 
 _CONFIG_CLASS_MAP: dict[str, str] = {
     "deepseek_v4": "vllm.transformers_utils.configs.deepseek_v4.DeepseekV4Config",
+    "kimi_k25": "vllm.transformers_utils.configs.kimi_k25.KimiK25Config",
 }
 
 
@@ -56,7 +59,7 @@ def _load_hf_config(model_path: str):
         from vllm.transformers_utils.config import patch_rope_parameters
         patch_rope_parameters(config)
         return config
-    except (KeyError, ValueError):
+    except (KeyError, ValueError, OSError):
         pass
     config_path = os.path.join(model_path, "config.json")
     with open(config_path) as f:
@@ -189,6 +192,8 @@ _MODEL_PATHS = {
     "qwen": os.path.dirname(__file__) + "/../Qwen/Qwen2.5-0.5B-Instruct",
     "deepseek_v3_2": os.path.dirname(__file__) + "/../deepseek-ai/DeepSeek-V3.2-Exp",
     "deepseek_v4": os.path.dirname(__file__) + "/../deepseek-ai/DeepSeek-V4-Pro",
+    "minimax_m2": os.path.dirname(__file__) + "/../MiniMax/MiniMax-M2.7",
+    "kimi_k25": os.path.dirname(__file__) + "/../moonshotai/Kimi-K2.6",
 }
 
 
